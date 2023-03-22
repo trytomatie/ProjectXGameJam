@@ -1,0 +1,245 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.11f1 (0a5ca18544bf) revision 679073'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22000) 64bit Core' Language: 'en' Physical Memory: 19829 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\UnityEditors\2021.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+D:/UnityShasy/Gamjam Base
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+58039
+Successfully changed project path to: D:/UnityShasy/Gamjam Base
+D:/UnityShasy/Gamjam Base
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 183.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.11f1 (0a5ca18544bf)
+[Subsystems] Discovering subsystems at path C:/UnityEditors/2021.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/UnityShasy/Gamjam Base/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f99)
+    Vendor:   NVIDIA
+    VRAM:     3950 MB
+    Driver:   31.0.15.2802
+Initialize mono
+Mono path[0] = 'C:/UnityEditors/2021.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/UnityEditors/2021.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/UnityEditors/2021.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56808
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/UnityEditors/2021.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/UnityEditors/2021.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/UnityEditors/2021.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/UnityEditors/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.016011 seconds.
+Native extension for WindowsStandalone target not found
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 167.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.646 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1647ms)
+		BeginReloadAssembly (204ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (1182ms)
+			LoadAssemblies (203ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (257ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (59ms)
+			SetupLoadedEditorAssemblies (738ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (190ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (168ms)
+				BeforeProcessingInitializeOnLoad (3ms)
+				ProcessInitializeOnLoadAttributes (255ms)
+				ProcessInitializeOnLoadMethodAttributes (122ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.016979 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 163.92 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.877 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2879ms)
+		BeginReloadAssembly (382ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (13ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (153ms)
+		EndReloadAssembly (2248ms)
+			LoadAssemblies (214ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (524ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (129ms)
+			SetupLoadedEditorAssemblies (1317ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (51ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (164ms)
+				BeforeProcessingInitializeOnLoad (173ms)
+				ProcessInitializeOnLoadAttributes (721ms)
+				ProcessInitializeOnLoadMethodAttributes (190ms)
+				AfterProcessingInitializeOnLoad (17ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.15 seconds
+Refreshing native plugins compatible for Editor in 2.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3960 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 46 unused Assets / (0.8 MB). Loaded Objects now: 4421.
+Memory consumption went from 176.4 MB to 175.6 MB.
+Total: 7.676800 ms (FindLiveObjects: 0.774900 ms CreateObjectMapping: 0.397000 ms MarkObjects: 5.906200 ms  DeleteObjects: 0.596200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 182097.635576 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Ramp_70_1x1_01.prefab
+  artifactKey: Guid(f3b68f7ac9d44994e8c1c9ee7c26d95c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Ramp_70_1x1_01.prefab using Guid(f3b68f7ac9d44994e8c1c9ee7c26d95c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f1c4b4be16161ee2f9247835d81ad6b') in 0.299948 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_RoofAngledCornerMiddle_5x5_01.prefab
+  artifactKey: Guid(6b6bbc7b5d3c19e408cda087dc5f2ded) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_RoofAngledCornerMiddle_5x5_01.prefab using Guid(6b6bbc7b5d3c19e408cda087dc5f2ded) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26aa032a96addd0c20f39806b87a9858') in 0.039666 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorHole_1x1_01.prefab
+  artifactKey: Guid(e745b21428187014ca54c42b864c0043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorHole_1x1_01.prefab using Guid(e745b21428187014ca54c42b864c0043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea223bb85c966d017e9fe15beebffc10') in 0.045276 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Ramp_50_1x1_01.prefab
+  artifactKey: Guid(64b779ce33d2fad4294882414467baa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Ramp_50_1x1_01.prefab using Guid(64b779ce33d2fad4294882414467baa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0befdd84f9b4f6581c16df301240f8f1') in 0.045743 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000084 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorInner_Curved_2x2_01.prefab
+  artifactKey: Guid(6e6275d88adfb9c489887d2d3dd9df67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorInner_Curved_2x2_01.prefab using Guid(6e6275d88adfb9c489887d2d3dd9df67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efaf2ced6f506ace83f9e7e8ae53e49c') in 0.042714 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorInner_Curved_1x1_01.prefab
+  artifactKey: Guid(a9ea1fa5ec93f8344a053893bcac2c49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorInner_Curved_1x1_01.prefab using Guid(a9ea1fa5ec93f8344a053893bcac2c49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a8ec35a33ed889f1f715ddac1803f62') in 0.046969 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Ramp_45_1x1_01.prefab
+  artifactKey: Guid(79ecc678a95687547a9794055ab348d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Ramp_45_1x1_01.prefab using Guid(79ecc678a95687547a9794055ab348d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20b9f3f2e5d1dd042b421b2ec7751b8f') in 0.045302 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorCurved_2x2_01.prefab
+  artifactKey: Guid(d49c72aa3d3edd64d97225e4680cd857) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_FloorCurved_2x2_01.prefab using Guid(d49c72aa3d3edd64d97225e4680cd857) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f42b564b6a4951ff3cc8ed1aff965541') in 0.053695 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_RoofAngledCornerOuter_5x5_01.prefab
+  artifactKey: Guid(bfa953a0b1b7caf43b71ec4fda50534d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_RoofAngledCornerOuter_5x5_01.prefab using Guid(bfa953a0b1b7caf43b71ec4fda50534d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78e6dc4b6f8d0d423334d4ad2f5e813c') in 0.062471 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Column_1x3_01.prefab
+  artifactKey: Guid(4e4e9fccc8fbd2a4eacd86123002be3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Simple/SM_Buildings_Column_1x3_01.prefab using Guid(4e4e9fccc8fbd2a4eacd86123002be3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b80e26179e0a698ade572bbc73bfebb9') in 0.046404 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Polygon/SM_Buildings_RoofAngledPoint_1x1_01P.prefab
+  artifactKey: Guid(71fbb379c4ab32a4b830e8aef50d14b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Polygon/SM_Buildings_RoofAngledPoint_1x1_01P.prefab using Guid(71fbb379c4ab32a4b830e8aef50d14b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10677bb5dfe96db7932d53cb3dd55368') in 0.049958 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/PolygonPrototype/Prefabs/Buildings/Polygon/SM_Buildings_RoofAngledCornerOuter_5x5_01P.prefab
+  artifactKey: Guid(01d1734f1997bd249ad05a814afa7e53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPrototype/Prefabs/Buildings/Polygon/SM_Buildings_RoofAngledCornerOuter_5x5_01P.prefab using Guid(01d1734f1997bd249ad05a814afa7e53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34df20e0f6b220645b81e4602a5df35d') in 0.051012 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
