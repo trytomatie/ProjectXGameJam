@@ -17,7 +17,6 @@ public class MouseStateManager : MonoBehaviour
     public MousePatrolState mousePatrol = new MousePatrolState();
     public MouseIdleState mouseIdle = new MouseIdleState();
     public MouseAnimationState mouseAni = new MouseAnimationState();
-    public MouseyCheckForStuff checkForStuff = new MouseyCheckForStuff();
     public MouseyChase mChase = new MouseyChase();
     public MouseCheeseState mouseCheese = new MouseCheeseState();
     public MouseySearchState mouseySearch = new MouseySearchState();
@@ -87,8 +86,6 @@ public class MouseStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Check for Player
-        checkForStuff.UpdateMouseState(this);
 
         //Update current state
         currentState.UpdateMouseState(this);
@@ -129,7 +126,6 @@ public class MouseStateManager : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        checkForStuff.MouseTrigger(other, this);
     }
 
     

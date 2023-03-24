@@ -234,15 +234,8 @@ public class PlayerController : State
             movementSpeed = 0;
             Animations();
             isTransitioning = true;
-            return StateName.Interacting;
-        }
-        if(Input.GetKeyDown(KeyCode.R) && GetComponent<Inventory>().Cheese > 0 && (anim.GetCurrentAnimatorStateInfo(0).IsName("Movement") || anim.GetCurrentAnimatorStateInfo(0).IsName("Sneaking")))   
-        {
-            movementSpeed = 0;
-            Animations();
-            isTransitioning = true;
-            inventory.Cheese--;
-            return StateName.Throwing;
+            gameObject.GetComponent<InteractionHandler>().ReachableInteractable.Interaction(gameObject);
+            return stateName;
         }
         return stateName;
     }
