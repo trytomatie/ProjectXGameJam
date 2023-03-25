@@ -31,10 +31,10 @@ public class MouseyCheckForStuff : MouseBaseState
         Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
         if (CheckPlayerInView(Mouse.player, Mouse))
         {
-            if (Mouse.currentState != Mouse.mouseCheese)
+            /*if (Mouse.currentState != Mouse.mouseCheese)
             {
                 Mouse.SwitchMouseState(Mouse.mChase);
-            }
+            }*/
         }
 
         CheckForNoise(Mouse);
@@ -129,11 +129,11 @@ public class MouseyCheckForStuff : MouseBaseState
             {
                 GameObject item = other.gameObject;
                 Interactable_Item itemScript = item.GetComponent<Interactable_Item>();
-                if (itemScript.itemType == Interactable_Item.ItemType.Cheese && Mouse.cheese==null)
+                /* (itemScript.itemType == Interactable_Item.ItemType.Cheese && Mouse.cheese==null)
                 {
                     Mouse.cheese = item;
                     Mouse.SwitchMouseState(Mouse.mouseCheese);
-                }
+                }*/
             }
         }
         
@@ -161,9 +161,9 @@ public class MouseyCheckForStuff : MouseBaseState
     {
         
         PlayerController player = Mouse.player.GetComponent<PlayerController>();
-        if (player.noise > distance && Mouse.currentState != Mouse.mouseCheese)
+        /*if (player.noise > distance && Mouse.currentState != Mouse.mouseCheese)
         {
             Mouse.SwitchMouseState(Mouse.mChase);
-        }
+        }*/
     }
 }

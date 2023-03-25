@@ -16,10 +16,10 @@ public class MouseStateManager : MonoBehaviour
     //States
     public MousePatrolState mousePatrol = new MousePatrolState();
     public MouseIdleState mouseIdle = new MouseIdleState();
-    public MouseAnimationState mouseAni = new MouseAnimationState();
+    //public MouseAnimationState mouseAni = new MouseAnimationState();
     public MouseyCheckForStuff checkForStuff = new MouseyCheckForStuff();
     public MouseyChase mChase = new MouseyChase();
-    public MouseCheeseState mouseCheese = new MouseCheeseState();
+    //public MouseCheeseState mouseCheese = new MouseCheeseState();
     public MouseySearchState mouseySearch = new MouseySearchState();
 
     public MouseBaseState currentState;
@@ -39,7 +39,7 @@ public class MouseStateManager : MonoBehaviour
     public GameObject player;
     [HideInInspector]
     public GameObject cheese;
-    public GameObject lookAt;
+    //public GameObject lookAt;
 
     public Transform[] patrolPoints;
     public int nextPatrolPoint;
@@ -75,7 +75,7 @@ public class MouseStateManager : MonoBehaviour
         //initialize Parameter 
         navMeshMouseAgent = GetComponent<NavMeshAgent>();
         mouseAnimator = GetComponent<Animator>();
-        player = GameObject.Find("Clyde The Kid");
+        player = GameObject.Find("Player");
 
         nextPatrolPoint = 0;
         forward = true;
@@ -94,7 +94,7 @@ public class MouseStateManager : MonoBehaviour
         currentState.UpdateMouseState(this);
 
         //update the animations
-        mouseAni.UpdateMouseState(this);
+        //mouseAni.UpdateMouseState(this);
     }
 
 
