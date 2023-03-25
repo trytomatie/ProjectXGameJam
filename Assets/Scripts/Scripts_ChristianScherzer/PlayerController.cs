@@ -49,7 +49,7 @@ public class PlayerController : State
     private CharacterController cc;
     public Rigidbody hipRb;
     public Animator anim;
-    private Camera mainCamera;
+    public Camera mainCamera;
     private Volume chaseVolume;
     private Inventory inventory;
 
@@ -63,7 +63,7 @@ public class PlayerController : State
     {
         cc = GetComponent<CharacterController>();
         inventory = GetComponent<Inventory>();
-        mainCamera = Camera.main;
+        // mainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
 
     }
