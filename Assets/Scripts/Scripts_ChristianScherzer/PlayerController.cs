@@ -145,7 +145,7 @@ public class PlayerController : State
         return;
 
         cc.Move(lastMovement * movementSpeed * Time.deltaTime 
-            + new Vector3(0, ySpeed, 0) * Time.deltaTime
+            + new Vector3(0, hipRb.velocity.y, 0) * Time.deltaTime
             + slideMovement);
     }
 

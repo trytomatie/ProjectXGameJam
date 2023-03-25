@@ -20,12 +20,21 @@ public class AttachToLimb : MonoBehaviour
     {
         if(Input.GetMouseButton(mouseButton) && !isGrabbing)
         {
-            if(target != null)
+            if(target != null && target.tag =="Item")
             {
                 isGrabbing = true;
                 targetJoint = target.AddComponent<FixedJoint>();
                 targetJoint.connectedBody = rb;
                 targetJoint.breakForce = 9000;
+            }
+
+            if (target != null && target.tag == "Grabable")
+            {
+                isGrabbing = true;
+                targetJoint = gameObject.AddComponent<FixedJoint>();
+                targetJoint.connectedBody = target.GetComponent<Rigidbody>();
+                targetJoint.breakForce = 6000;
+                targetJoint.connectedMassScale = 0.01f;
             }
         }
         if (Input.GetMouseButtonUp(mouseButton))
@@ -44,7 +53,7 @@ public class AttachToLimb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Item")
+        if(collision.gameObject.tag == "Item" || collision.gameObject.tag == "Grabable")
         {
             target = collision.gameObject;
         }
