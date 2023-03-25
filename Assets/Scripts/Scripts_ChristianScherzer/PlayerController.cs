@@ -47,11 +47,13 @@ public class PlayerController : State
     private bool isTransitioning = false;
 
     private CharacterController cc;
+    public Rigidbody hipRb;
     public Animator anim;
     private Camera mainCamera;
     private Volume chaseVolume;
     private Inventory inventory;
 
+    public CopyLimb copyLimb;
 
 
 
@@ -96,11 +98,9 @@ public class PlayerController : State
     /// </summary>
     private void Rotation()
     {
-        if (cc.velocity.magnitude > 0)
-        {
             float rotation = Mathf.Atan2(lastMovement.x, lastMovement.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, rotation, 0), turnspeed * Time.deltaTime);
-        }
+        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, rotation, 0), turnspeed * Time.deltaTime);
+        copyLimb.targetRotationOffset = new Vector3(0, rotation, 0);
     }
 
     /// <summary>
@@ -139,7 +139,10 @@ public class PlayerController : State
         {
             lastMovement = cameraDependingMovement;
         }
-
+        hipRb.velocity = lastMovement * movementSpeed * Time.deltaTime
+            + new Vector3(0, 0, 0) * Time.deltaTime
+            + slideMovement;
+        return;
 
         cc.Move(lastMovement * movementSpeed * Time.deltaTime 
             + new Vector3(0, ySpeed, 0) * Time.deltaTime
