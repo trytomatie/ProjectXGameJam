@@ -13,7 +13,11 @@ public class PlayerEasyAllInOne : MonoBehaviour
     private bool groundedPlayer;
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
+    public float noise = 0;
     private Vector3 playerVelocity;
+    public float chaseIndex=0;
+    public LayerMask layerMask;
+    public float aimInterruptTime = 0;
 
     public float playerHeight = 1.1f; // distance to cast the ground raycast
     public LayerMask groundLayer; // the layer(s) that the player can stand on
@@ -21,7 +25,8 @@ public class PlayerEasyAllInOne : MonoBehaviour
     private float verticalInput;
     private float horizontalInput;
     float turnSmoothVelocity;
-
+    private GameObject lastAimedObject;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
 
         //check if player is on ground and Gravity and stuff
         Grounded();
+        CheckWhatsAimedAt();
 
         //get Input
         horizontalInput = Input.GetAxis("Horizontal");
@@ -59,6 +65,38 @@ public class PlayerEasyAllInOne : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
         
+    }
+
+    private void CheckWhatsAimedAt()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.transform.gameObject!= lastAimedObject)
+            {
+                lastAimedObject = hit.transform.gameObject;
+                if (lastAimedObject.GetComponent<MouseStateManager>()!=null)
+                {
+                    aimInterruptTime = 2f;
+                }
+            }
+            // A collider was hit
+            Debug.Log("Hit object: " + hit.transform.name);
+            // Do something with the hit object
+        }
+        else
+        {
+            if (aimInterruptTime > 0)
+            {
+                aimInterruptTime -= (1*Time.deltaTime);
+            }
+            else
+
+            // No collider was hit
+            Debug.Log("No object hit");
+        }
+
     }
 
     private void Grounded()

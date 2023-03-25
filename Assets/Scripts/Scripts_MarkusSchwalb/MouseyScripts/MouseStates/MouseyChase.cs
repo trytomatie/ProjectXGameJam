@@ -21,7 +21,7 @@ public class MouseyChase : MouseBaseState
         //komm doch her mein bester
         Mouse.PlayVoiceLines(Mouse.voiceLines[1]);
         //Add 1 to the player chase Index for visual feedback
-        Mouse.player.GetComponent<PlayerController>().chaseIndex++;
+        Mouse.player.GetComponent<PlayerEasyAllInOne>().chaseIndex++;
 
 
 
@@ -45,6 +45,6 @@ public class MouseyChase : MouseBaseState
     /// <param name="Mouse"></param>
     public override void ExitMouseState(MouseStateManager Mouse)
     {
-        Mouse.player.GetComponent<PlayerController>().chaseIndex--;
+        Mouse.player.GetComponent<PlayerEasyAllInOne>().chaseIndex--;
     }
 }

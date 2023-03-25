@@ -31,10 +31,10 @@ public class MouseyCheckForStuff : MouseBaseState
         Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
         if (CheckPlayerInView(Mouse.player, Mouse))
         {
-            if (Mouse.currentState != Mouse.mouseCheese)
-            {
+            //if (Mouse.currentState != Mouse.mouseCheese)
+            //{
                 Mouse.SwitchMouseState(Mouse.mChase);
-            }
+            //}
         }
 
         CheckForNoise(Mouse);
@@ -102,14 +102,14 @@ public class MouseyCheckForStuff : MouseBaseState
                 //check if the hit is the player
                 if (hitObject.CompareTag("Player"))
                 {
-                    //Debug.Log("Hitplayer");
-                    //Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * hit.distance), Color.green);
+                    Debug.Log("Hitplayer");
+                    Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * hit.distance), Color.green);
                     return true;
                 }
                 
             }
         }
-        //Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * Mouse.mouseyViewingDistance), Color.red);
+        Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * Mouse.mouseyViewingDistance), Color.red);
 
         return false;
         
@@ -123,7 +123,7 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
    public void MouseTrigger(Collider other, MouseStateManager Mouse)
     {
-        if (Mouse.currentState != Mouse.mChase)
+        /*if (Mouse.currentState != Mouse.mChase)
         {
             if (other.gameObject.GetComponent<Interactable_Item>() != null)
             {
@@ -135,7 +135,7 @@ public class MouseyCheckForStuff : MouseBaseState
                     Mouse.SwitchMouseState(Mouse.mouseCheese);
                 }
             }
-        }
+        }*/
         
     }
 
@@ -148,7 +148,8 @@ public class MouseyCheckForStuff : MouseBaseState
         distance = Vector3.Distance(Mouse.player.transform.position, Mouse.transform.position);
         if (Mouse.currentState == Mouse.mChase && distance < Mouse.catchDistance)
         {
-            SceneManager.LoadScene(2);
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex);
             Debug.Log("verloren");
         }
     }
@@ -160,10 +161,10 @@ public class MouseyCheckForStuff : MouseBaseState
     private void CheckForNoise(MouseStateManager Mouse)
     {
         
-        PlayerController player = Mouse.player.GetComponent<PlayerController>();
-        if (player.noise > distance && Mouse.currentState != Mouse.mouseCheese)
-        {
-            Mouse.SwitchMouseState(Mouse.mChase);
-        }
+        // player = Mouse.player.GetComponent<PlayerController>();
+        //if (player.noise > distance /*&& Mouse.currentState != Mouse.mouseCheese*/)
+        //{
+        //    Mouse.SwitchMouseState(Mouse.mChase);
+        //}
     }
 }
