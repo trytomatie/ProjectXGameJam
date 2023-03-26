@@ -18,6 +18,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
     public float chaseIndex=0;
     public LayerMask layerMask;
     public float timeAtAim = 0;
+    public float stunTimeAt = 3;
     public Transform aimAt; 
 
     public float playerHeight = 1.1f; // distance to cast the ground raycast
@@ -28,13 +29,20 @@ public class PlayerEasyAllInOne : MonoBehaviour
     float turnSmoothVelocity;
     private GameObject lastAimedEnemy;
     public GameObject chaseStateVolume;
-   
+    //private 
+
+    public GameObject[] taschenlampenObjecte;
+    private bool flashlightOnOff=false;
+
+    private float dashCoolDown;
+
     // Start is called before the first frame update
     void Start()
     {
         plCharacterController = GetComponent<CharacterController>();
         chaseStateVolume.SetActive(false);
-
+        Cursor.lockState = CursorLockMode.Locked;
+        dashCoolDown = 0;
     }
 
     // Update is called once per frame
@@ -45,6 +53,8 @@ public class PlayerEasyAllInOne : MonoBehaviour
         Grounded();
         CheckWhatsAimedAt();
         CheckChaseState();
+        CheckFlashlightBool();
+        
 
         //get Input
         horizontalInput = Input.GetAxis("Horizontal");
@@ -60,15 +70,71 @@ public class PlayerEasyAllInOne : MonoBehaviour
             //create the viewing angle with movement and Camera angle
             
             //move
-            plCharacterController.Move(direction * speed * Time.deltaTime);
+            if (CheckSneaking())
+            {
+                plCharacterController.Move(direction * speed/2 * Time.deltaTime);
+                noise = 1;
+                transform.localScale = new Vector3(1, .75f, 1);
+                plCharacterController.height = .75f;
+            }
+            else
+            {
+                plCharacterController.Move(direction * speed * Time.deltaTime);
+                noise = 3;
+                transform.localScale = new Vector3(1, 1, 1);
+                plCharacterController.height = 1;
+            }
+            
         }
+
+        
         
             //rotate with camera angle
             float targetAngle = camer.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
-        
+        //dash
+        if (Input.GetKey(KeyCode.LeftShift) && dashCoolDown <= 0)
+        {
+            plCharacterController.Move(direction * 2);
+            dashCoolDown = 5;
+        }
+        if (dashCoolDown > 0)
+        {
+            dashCoolDown -= 1 * Time.deltaTime;
+        }
+    }
+
+    private bool CheckSneaking()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    private void CheckFlashlightBool()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            flashlightOnOff = true;
+            for (int i = 0; i < taschenlampenObjecte.Length; i++)
+            {
+                taschenlampenObjecte[i].SetActive(true);
+            }
+            
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            flashlightOnOff = false;
+            for (int i = 0; i < taschenlampenObjecte.Length; i++)
+            {
+                taschenlampenObjecte[i].SetActive(false);
+            }
+            timeAtAim = 0;
+        }
     }
 
     private void CheckChaseState()
@@ -96,6 +162,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
         //if countdown > number than 
 
         //It would be smarter to have this Time aimed at on the Enemy itself but it is a prototype so who cares
+        if (flashlightOnOff==true) { 
         if (Physics.Raycast(ray, out RaycastHit hit, 40, layerMask))
         {
             if (hit.transform.gameObject.GetComponent<MouseStateManager>() != null)
@@ -105,7 +172,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
                     if (lastAimedEnemy.GetComponent<MouseStateManager>().blendAble && checkFaceOffEnemy() )
                     {
                         timeAtAim += 1 * Time.deltaTime;
-                        if (timeAtAim > 2)
+                        if (timeAtAim > stunTimeAt)
                         {
                             lastAimedEnemy.GetComponent<MouseStateManager>().SwitchMouseState(lastAimedEnemy.GetComponent<MouseStateManager>().mouseyBlended);
                             timeAtAim = 0;
@@ -149,10 +216,10 @@ public class PlayerEasyAllInOne : MonoBehaviour
         {
             if (timeAtAim > 0)
             {
-                timeAtAim -= 1 * Time.deltaTime;
+                timeAtAim -= .2f * Time.deltaTime;
             }
         }
-
+        }
     }
 
     private bool checkFaceOffEnemy()
@@ -160,7 +227,9 @@ public class PlayerEasyAllInOne : MonoBehaviour
         //create Vector between enemy and Character
         Vector3 vectorBetween = transform.position - lastAimedEnemy.transform.position;
         //calculate the angle
-        float angle = Vector3.Angle(vectorBetween, lastAimedEnemy.transform.forward);
+        //float angle = Vector3.Angle(vectorBetween, lastAimedEnemy.transform.forward);
+        float angle = Vector2.Angle(new Vector2 (lastAimedEnemy.transform.forward.x,lastAimedEnemy.transform.forward.z), new Vector2(vectorBetween.x, vectorBetween.z).normalized);
+
         if (lastAimedEnemy.GetComponent<MouseStateManager>().mouseyFieldOfView > angle)
         {
             Debug.Log("FaceOff");
