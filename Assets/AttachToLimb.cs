@@ -9,10 +9,12 @@ public class AttachToLimb : MonoBehaviour
     private Rigidbody rb;
     private FixedJoint targetJoint;
     public bool isGrabbing;
+    public ConfigurableJoint[] limbJoints;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -26,6 +28,8 @@ public class AttachToLimb : MonoBehaviour
                 targetJoint = target.AddComponent<FixedJoint>();
                 targetJoint.connectedBody = rb;
                 targetJoint.breakForce = 9000;
+                targetJoint.connectedMassScale = 0.7f;
+                // targetJoint.massScale = 11111;
             }
 
             if (target != null && target.tag == "Grabable")
@@ -35,6 +39,7 @@ public class AttachToLimb : MonoBehaviour
                 targetJoint.connectedBody = target.GetComponent<Rigidbody>();
                 targetJoint.breakForce = 6000;
                 targetJoint.connectedMassScale = 0.01f;
+                targetJoint.massScale = 11111;
             }
         }
         if (Input.GetMouseButtonUp(mouseButton))
@@ -44,9 +49,10 @@ public class AttachToLimb : MonoBehaviour
             {
                 if (targetJoint != null)
                 {
-                    targetJoint.breakForce = 100;
+                    Destroy(targetJoint);
                 }
                 target = null;
+
             }
         }
     }

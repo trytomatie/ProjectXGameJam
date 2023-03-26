@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// By Christian Scherzer
@@ -140,7 +141,7 @@ public class PlayerController : State
             lastMovement = cameraDependingMovement;
         }
         hipRb.velocity = lastMovement * movementSpeed * Time.deltaTime
-            + new Vector3(0, 0, 0) * Time.deltaTime
+            + new Vector3(0, hipRb.velocity.y, 0) * Time.deltaTime
             + slideMovement;
         return;
 
