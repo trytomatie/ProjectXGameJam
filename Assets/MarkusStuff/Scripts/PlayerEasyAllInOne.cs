@@ -29,6 +29,8 @@ public class PlayerEasyAllInOne : MonoBehaviour
     float turnSmoothVelocity;
     private GameObject lastAimedEnemy;
     public GameObject chaseStateVolume;
+
+    public bool isHidden = false;
     //private 
 
     public GameObject[] taschenlampenObjecte;
@@ -270,6 +272,22 @@ public class PlayerEasyAllInOne : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         plCharacterController.Move(playerVelocity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent("HidingSpot"))
+        {
+            isHidden = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent("HidingSpot"))
+        {
+            isHidden = false;
+        }
     }
 }
 

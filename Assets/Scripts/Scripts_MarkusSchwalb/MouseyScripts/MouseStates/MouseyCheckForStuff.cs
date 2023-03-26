@@ -32,7 +32,7 @@ public class MouseyCheckForStuff : MouseBaseState
         Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
         if (CheckPlayerInView(Mouse.player, Mouse))
         {
-            if (Mouse.currentState != Mouse.mouseyBlended)
+            if (Mouse.currentState != Mouse.mouseyBlended && Mouse.player.GetComponent<PlayerEasyAllInOne>().isHidden==false)
             {
                 Mouse.SwitchMouseState(Mouse.mChase);
             }
@@ -168,10 +168,10 @@ public class MouseyCheckForStuff : MouseBaseState
     private void CheckForNoise(MouseStateManager Mouse)
     {
 
-        PlayerEasyAllInOne player = Mouse.player.GetComponent<PlayerEasyAllInOne>();
-        if (player.noise > distance /*&& Mouse.currentState != Mouse.mouseCheese*/)
+        /*PlayerEasyAllInOne player = Mouse.player.GetComponent<PlayerEasyAllInOne>();
+        if (player.noise > distance )
         {
             Mouse.SwitchMouseState(Mouse.mChase);
-        }
+        }*/
     }
 }

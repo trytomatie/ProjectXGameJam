@@ -33,7 +33,7 @@ public class MouseyChase : MouseBaseState
     /// <param name="Mouse"></param>
     public override void UpdateMouseState(MouseStateManager Mouse)
     {
-        if (Mouse.navMeshMouseAgent.remainingDistance <= 0.2f  /*&& Mouse.navMeshMouseAgent.pathStatus==NavMeshPathStatus.PathComplete*/)
+        if (Mouse.navMeshMouseAgent.remainingDistance <= 0.2f || Mouse.player.GetComponent<PlayerEasyAllInOne>().isHidden  /*&& Mouse.navMeshMouseAgent.pathStatus==NavMeshPathStatus.PathComplete*/)
         {
             Mouse.SwitchMouseState(Mouse.mouseySearch);
         }
