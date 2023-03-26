@@ -25,6 +25,7 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
     public override void UpdateMouseState(MouseStateManager Mouse)
     {
+
         calculateDistance(Mouse);
 
         //Debug.Log("CheckForStuff");
@@ -54,19 +55,21 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <returns></returns>
     private bool CheckPlayerInView(GameObject player, MouseStateManager Mouse)
     {
+        
         //Debug.Log("CheckPlayerInView");
         //create a Vector 3 as an direction vector between Mousey and Player
-        Vector3 vectorBetween = player.transform.position - Mouse.transform.position;
+        Vector3 vectorOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
+        Vector3 vectorBetween = player.transform.position - vectorOrigin;
         //calculate the angle
-        float angle = Vector3.Angle(vectorBetween, Mouse.transform.forward);
-
+        float angle = Vector3.Angle(vectorBetween, vectorOrigin);
+        //Debug.DrawRay(vectorOrigin, (vectorBetween.normalized * Mouse.mouseyViewingDistance), Color.yellow);
         //Check if the player is in Mouseys FieldOfView
         if (Mouse.mouseyFieldOfView > angle)
         {
             //Debug.Log("CheckPlayerInViewTrue");
 
             //Check if player can be seen
-            if (playerHitByRaycast(Mouse, vectorBetween))
+            if (playerHitByRaycast(Mouse, vectorBetween, vectorOrigin))
             {
                 return true;
             }
@@ -82,17 +85,17 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
     /// <param name="vectorToPlayer"></param>
     /// <returns></returns>
-    private bool playerHitByRaycast(MouseStateManager Mouse, Vector3 vectorToPlayer)
+    private bool playerHitByRaycast(MouseStateManager Mouse, Vector3 vectorToPlayer, Vector3 vectorOrigin)
     {
         //Debug.Log("playerHitbyRaycasttest");
 
         //calculate Raycast origin 
-        Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
+        //Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
         
         RaycastHit hit;
 
         
-        if(Physics.Raycast(rayCastOrigin, vectorToPlayer, out hit, Mouse.mouseyViewingDistance, Mouse.mouseRayCastLayers))
+        if(Physics.Raycast(vectorOrigin, vectorToPlayer, out hit, Mouse.mouseyViewingDistance, Mouse.mouseRayCastLayers))
         {
             if (hit.collider != null)
             {
@@ -103,13 +106,13 @@ public class MouseyCheckForStuff : MouseBaseState
                 if (hitObject.CompareTag("Player"))
                 {
                     //Debug.Log("Hitplayer");
-                    Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * hit.distance), Color.green);
+                    Debug.DrawRay(vectorOrigin, (vectorToPlayer.normalized * hit.distance), Color.green);
                     return true;
                 }
                 
             }
         }
-        Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * Mouse.mouseyViewingDistance), Color.red);
+        Debug.DrawRay(vectorOrigin, (vectorToPlayer.normalized * Mouse.mouseyViewingDistance), Color.red);
 
         return false;
         
