@@ -34,14 +34,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Frensnel_Strength: 2.4
+    - _Frensnel_Strength: 2.94
     - _Metalic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smothness: 0
     m_Colors:
-    - _BaseColor: {r: 0.03645422, g: 0.22610857, b: 0.6037736, a: 0}
-    - _FrenselColor: {r: 0, g: 0.75337684, b: 0.80784315, a: 0}
+    - _BaseColor: {r: 0, g: 0.14983739, b: 0.4433962, a: 0}
+    - _FrenselColor: {r: 0, g: 0.61059576, b: 1.2211915, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5904255809090536770
 MonoBehaviour:
