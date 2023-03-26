@@ -74,15 +74,15 @@ public class PlayerEasyAllInOne : MonoBehaviour
             {
                 plCharacterController.Move(direction * speed/2 * Time.deltaTime);
                 noise = 1;
-                transform.localScale = new Vector3(1, .75f, 1);
-                plCharacterController.height = .75f;
+                transform.localScale = new Vector3(.75f, .5f, .75f);
+                plCharacterController.height = .5f;
             }
             else
             {
                 plCharacterController.Move(direction * speed * Time.deltaTime);
                 noise = 3;
-                transform.localScale = new Vector3(1, 1, 1);
-                plCharacterController.height = 1;
+                transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                plCharacterController.height = 0.75f;
             }
             
         }
