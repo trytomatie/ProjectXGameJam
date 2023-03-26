@@ -49018,7 +49018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5594704275557812454, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59294033
+      value: 0.23814774
       objectReference: {fileID: 0}
     - target: {fileID: 5594704275557812454, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49028,9 +49028,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0000009536743
       objectReference: {fileID: 0}
+    - target: {fileID: 5594704275764748323, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5594704276151443669, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59294033
+      value: 0.23814774
       objectReference: {fileID: 0}
     - target: {fileID: 5594704276151443669, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49042,7 +49046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5594704276262845549, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0935769
+      value: -0.7387843
       objectReference: {fileID: 0}
     - target: {fileID: 5594704276262845549, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49070,7 +49074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5594704277080760117, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0935769
+      value: -0.7387843
       objectReference: {fileID: 0}
     - target: {fileID: 5594704277080760117, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49086,15 +49090,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5594704277080760117, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1784248
+      value: 0.17842482
       objectReference: {fileID: 0}
     - target: {fileID: 5594704277080760117, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008465139
+      value: -0.000000008465141
       objectReference: {fileID: 0}
     - target: {fileID: 5594704277080760117, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000015350226
+      value: 0.0000000015350229
       objectReference: {fileID: 0}
     - target: {fileID: 5594704277150923029, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalScale.x
@@ -49108,9 +49112,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.73483
       objectReference: {fileID: 0}
+    - target: {fileID: 5594704277150923031, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
+      propertyPath: taschenlampenObjecte.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594704277150923031, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
+      propertyPath: taschenlampenObjecte.Array.data[0]
+      value: 
+      objectReference: {fileID: 1475680892}
     - target: {fileID: 5594704277187405497, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0935769
+      value: -0.7387843
       objectReference: {fileID: 0}
     - target: {fileID: 5594704277187405497, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49186,6 +49198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
+--- !u!1 &1475680892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5594704275764748323, guid: bfb0ee641e70cbb47aeba2f346c16abb, type: 3}
+  m_PrefabInstance: {fileID: 1475680891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1478063433
 GameObject:
   m_ObjectHideFlags: 0
@@ -61264,7 +61281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6574467702939098240, guid: 8379e481a3b37b74fa8c7d54710035ec, type: 3}
       propertyPath: eyeHeight
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6574467702939098240, guid: 8379e481a3b37b74fa8c7d54710035ec, type: 3}
       propertyPath: viewHeight

@@ -28,13 +28,16 @@ public class PlayerEasyAllInOne : MonoBehaviour
     float turnSmoothVelocity;
     private GameObject lastAimedEnemy;
     public GameObject chaseStateVolume;
+
+    public GameObject[] taschenlampenObjecte;
+    private bool flashlightOnOff=false;
    
     // Start is called before the first frame update
     void Start()
     {
         plCharacterController = GetComponent<CharacterController>();
         chaseStateVolume.SetActive(false);
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
         Grounded();
         CheckWhatsAimedAt();
         CheckChaseState();
+        CheckFlashlightBool();
 
         //get Input
         horizontalInput = Input.GetAxis("Horizontal");
@@ -69,6 +73,28 @@ public class PlayerEasyAllInOne : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
         
+    }
+
+    private void CheckFlashlightBool()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            flashlightOnOff = true;
+            for (int i = 0; i < taschenlampenObjecte.Length; i++)
+            {
+                taschenlampenObjecte[i].SetActive(true);
+            }
+            
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            flashlightOnOff = false;
+            for (int i = 0; i < taschenlampenObjecte.Length; i++)
+            {
+                taschenlampenObjecte[i].SetActive(false);
+            }
+            timeAtAim = 0;
+        }
     }
 
     private void CheckChaseState()
@@ -96,6 +122,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
         //if countdown > number than 
 
         //It would be smarter to have this Time aimed at on the Enemy itself but it is a prototype so who cares
+        if (flashlightOnOff) { 
         if (Physics.Raycast(ray, out RaycastHit hit, 40, layerMask))
         {
             if (hit.transform.gameObject.GetComponent<MouseStateManager>() != null)
@@ -152,7 +179,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
                 timeAtAim -= 1 * Time.deltaTime;
             }
         }
-
+        }
     }
 
     private bool checkFaceOffEnemy()
