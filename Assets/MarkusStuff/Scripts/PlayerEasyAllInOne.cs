@@ -17,7 +17,8 @@ public class PlayerEasyAllInOne : MonoBehaviour
     private Vector3 playerVelocity;
     public float chaseIndex=0;
     public LayerMask layerMask;
-    public float aimInterruptTime = 0;
+    public float timeAtAim = 0;
+    public Transform aimAt; 
 
     public float playerHeight = 1.1f; // distance to cast the ground raycast
     public LayerMask groundLayer; // the layer(s) that the player can stand on
@@ -25,13 +26,15 @@ public class PlayerEasyAllInOne : MonoBehaviour
     private float verticalInput;
     private float horizontalInput;
     float turnSmoothVelocity;
-    private GameObject lastAimedObject;
+    private GameObject lastAimedEnemy;
+    public GameObject chaseStateVolume;
    
     // Start is called before the first frame update
     void Start()
     {
         plCharacterController = GetComponent<CharacterController>();
-        
+        chaseStateVolume.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -41,6 +44,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
         //check if player is on ground and Gravity and stuff
         Grounded();
         CheckWhatsAimedAt();
+        CheckChaseState();
 
         //get Input
         horizontalInput = Input.GetAxis("Horizontal");
@@ -67,16 +71,58 @@ public class PlayerEasyAllInOne : MonoBehaviour
         
     }
 
+    private void CheckChaseState()
+    {
+        if (chaseIndex > 0)
+        {
+            chaseStateVolume.SetActive(true);
+        } else
+        {
+            chaseStateVolume.SetActive(false);
+        }
+    }
+
     private void CheckWhatsAimedAt()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 aimDirection = aimAt.transform.position - transform.position; 
+        Ray ray = new Ray(transform.position, aimDirection);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
+        //sende Raycast
+        //finde heraus ob Enemy
+        //wenn enemy start 1 timer
+        //if not enemy but last enemy not then reset last aimed enemy and countdown 0
+        //if aimed at = last enemy increase countdown to 
+        //if countdown > number than 
+
+        //It would be smarter to have this Time aimed at on the Enemy itself but it is a prototype so who cares
+        if (Physics.Raycast(ray, out RaycastHit hit, 40, layerMask))
         {
-            if (hit.transform.gameObject!= lastAimedObject)
+            if (hit.transform.gameObject.GetComponent<MouseStateManager>() != null)
             {
-                lastAimedObject = hit.transform.gameObject;
-                if (lastAimedObject.GetComponent<MouseStateManager>()!=null)
+                if (hit.transform.gameObject == lastAimedEnemy)
+                {
+                    if (lastAimedEnemy.GetComponent<MouseStateManager>().blendAble && checkFaceOffEnemy() )
+                    {
+                        timeAtAim += 1 * Time.deltaTime;
+                        if (timeAtAim > 2)
+                        {
+                            lastAimedEnemy.GetComponent<MouseStateManager>().SwitchMouseState(lastAimedEnemy.GetComponent<MouseStateManager>().mouseyBlended);
+                            timeAtAim = 0;
+                        }
+                    }
+                } else if (hit.transform.gameObject != lastAimedEnemy)
+                {
+                    lastAimedEnemy = hit.transform.gameObject;
+                    timeAtAim = 0;
+                }
+            } 
+
+            /*
+            if (hit.transform.gameObject!= lastAimedEnemy) ///hier arbeite ich
+            {
+                 
+                if (hit.transform.gameObject.GetComponent<MouseStateManager>()!=null)
                 {
                     aimInterruptTime = 2f;
                 }
@@ -87,16 +133,40 @@ public class PlayerEasyAllInOne : MonoBehaviour
         }
         else
         {
-            if (aimInterruptTime > 0)
+            if (aimInterruptTime > 0 && lastAimedEnemy)
             {
                 aimInterruptTime -= (1*Time.deltaTime);
             }
-            else
+            else if (aimInterruptTime > 0)
+            {
+                aimInterruptTime = 0;
+                lastAimedEnemy = null;
+            }
 
             // No collider was hit
-            Debug.Log("No object hit");
+            Debug.Log("No object hit");*/
+        } else
+        {
+            if (timeAtAim > 0)
+            {
+                timeAtAim -= 1 * Time.deltaTime;
+            }
         }
 
+    }
+
+    private bool checkFaceOffEnemy()
+    {
+        //create Vector between enemy and Character
+        Vector3 vectorBetween = transform.position - lastAimedEnemy.transform.position;
+        //calculate the angle
+        float angle = Vector3.Angle(vectorBetween, lastAimedEnemy.transform.forward);
+        if (lastAimedEnemy.GetComponent<MouseStateManager>().mouseyFieldOfView > angle)
+        {
+            Debug.Log("FaceOff");
+            return true;
+        }
+        else return false;
     }
 
     private void Grounded()
@@ -112,15 +182,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
             groundedPlayer = false;
         }
 
-        // do something with the result, like play an animation or sound, or adjust the object's movement
-        if (groundedPlayer)
-        {
-            Debug.Log("Grounded!");
-        }
-        else
-        {
-            Debug.Log("Not grounded!");
-        }
+        
 
         //add Gravity 
 

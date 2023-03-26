@@ -31,10 +31,10 @@ public class MouseyCheckForStuff : MouseBaseState
         Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
         if (CheckPlayerInView(Mouse.player, Mouse))
         {
-            //if (Mouse.currentState != Mouse.mouseCheese)
-            //{
+            if (Mouse.currentState != Mouse.mouseyBlended)
+            {
                 Mouse.SwitchMouseState(Mouse.mChase);
-            //}
+            }
         }
 
         CheckForNoise(Mouse);
@@ -102,7 +102,7 @@ public class MouseyCheckForStuff : MouseBaseState
                 //check if the hit is the player
                 if (hitObject.CompareTag("Player"))
                 {
-                    Debug.Log("Hitplayer");
+                    //Debug.Log("Hitplayer");
                     Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * hit.distance), Color.green);
                     return true;
                 }

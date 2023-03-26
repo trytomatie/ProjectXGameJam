@@ -24,13 +24,13 @@ public class CameraAimHelperScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             // Object was hit
-            Debug.Log("Hit object: " + hit.transform.name);
+            //Debug.Log("Hit object: " + hit.transform.name);
             AimAtHelper.transform.position = hit.point;
         }
         else
         {
             // Object was not hit
-            Debug.Log("No object hit");
+            //Debug.Log("No object hit");
             Vector3 targetPosition = ray.origin + ray.direction * distance;
             AimAtHelper.transform.position = targetPosition;
         }
