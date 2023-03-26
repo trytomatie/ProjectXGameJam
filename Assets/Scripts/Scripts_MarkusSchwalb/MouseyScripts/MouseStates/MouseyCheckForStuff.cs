@@ -64,7 +64,7 @@ public class MouseyCheckForStuff : MouseBaseState
 
         //calculate the angle
         float angle = Vector2.Angle(forwardVector, new Vector2 (vectorBetween.x, vectorBetween.z).normalized);
-        Debug.Log("ANGLE " + angle);
+        //Debug.Log("ANGLE " + angle);
         Debug.DrawRay(vectorOrigin, (vectorBetween.normalized * Mouse.mouseyViewingDistance), Color.yellow);
         //Check if the player is in Mouseys FieldOfView
         if (Mouse.mouseyFieldOfView > angle)
@@ -167,11 +167,11 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
     private void CheckForNoise(MouseStateManager Mouse)
     {
-        
-        // player = Mouse.player.GetComponent<PlayerController>();
-        //if (player.noise > distance /*&& Mouse.currentState != Mouse.mouseCheese*/)
-        //{
-        //    Mouse.SwitchMouseState(Mouse.mChase);
-        //}
+
+        PlayerEasyAllInOne player = Mouse.player.GetComponent<PlayerEasyAllInOne>();
+        if (player.noise > distance /*&& Mouse.currentState != Mouse.mouseCheese*/)
+        {
+            Mouse.SwitchMouseState(Mouse.mChase);
+        }
     }
 }

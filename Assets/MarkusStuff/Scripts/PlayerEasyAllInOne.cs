@@ -29,16 +29,20 @@ public class PlayerEasyAllInOne : MonoBehaviour
     float turnSmoothVelocity;
     private GameObject lastAimedEnemy;
     public GameObject chaseStateVolume;
+    //private 
 
     public GameObject[] taschenlampenObjecte;
     private bool flashlightOnOff=false;
-   
+
+    private float dashCoolDown;
+
     // Start is called before the first frame update
     void Start()
     {
         plCharacterController = GetComponent<CharacterController>();
         chaseStateVolume.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        dashCoolDown = 0;
     }
 
     // Update is called once per frame
@@ -50,6 +54,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
         CheckWhatsAimedAt();
         CheckChaseState();
         CheckFlashlightBool();
+        
 
         //get Input
         horizontalInput = Input.GetAxis("Horizontal");
@@ -65,15 +70,49 @@ public class PlayerEasyAllInOne : MonoBehaviour
             //create the viewing angle with movement and Camera angle
             
             //move
-            plCharacterController.Move(direction * speed * Time.deltaTime);
+            if (CheckSneaking())
+            {
+                plCharacterController.Move(direction * speed/2 * Time.deltaTime);
+                noise = 1;
+                transform.localScale = new Vector3(1, .75f, 1);
+                plCharacterController.height = .75f;
+            }
+            else
+            {
+                plCharacterController.Move(direction * speed * Time.deltaTime);
+                noise = 3;
+                transform.localScale = new Vector3(1, 1, 1);
+                plCharacterController.height = 1;
+            }
+            
         }
+
+        
         
             //rotate with camera angle
             float targetAngle = camer.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
-        
+        //dash
+        if (Input.GetKey(KeyCode.LeftShift) && dashCoolDown <= 0)
+        {
+            plCharacterController.Move(direction * 2);
+            dashCoolDown = 5;
+        }
+        if (dashCoolDown > 0)
+        {
+            dashCoolDown -= 1 * Time.deltaTime;
+        }
+    }
+
+    private bool CheckSneaking()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            return true;
+        }
+        else return false;
     }
 
     private void CheckFlashlightBool()

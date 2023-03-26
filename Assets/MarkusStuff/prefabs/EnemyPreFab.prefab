@@ -347,7 +347,7 @@ MonoBehaviour:
   mouseyFieldOfView: 60
   eyeHeight: 2
   mouseyViewingDistance: 15
-  catchDistance: 0
+  catchDistance: 1.5
   viewHeight: 0
   blendTime: 5
   eyes: {fileID: 6574467702984736997}
