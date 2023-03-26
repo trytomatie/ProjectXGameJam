@@ -188,7 +188,9 @@ public class PlayerEasyAllInOne : MonoBehaviour
         //create Vector between enemy and Character
         Vector3 vectorBetween = transform.position - lastAimedEnemy.transform.position;
         //calculate the angle
-        float angle = Vector3.Angle(vectorBetween, lastAimedEnemy.transform.forward);
+        //float angle = Vector3.Angle(vectorBetween, lastAimedEnemy.transform.forward);
+        float angle = Vector2.Angle(new Vector2 (lastAimedEnemy.transform.forward.x,lastAimedEnemy.transform.forward.z), new Vector2(vectorBetween.x, vectorBetween.z).normalized);
+
         if (lastAimedEnemy.GetComponent<MouseStateManager>().mouseyFieldOfView > angle)
         {
             Debug.Log("FaceOff");

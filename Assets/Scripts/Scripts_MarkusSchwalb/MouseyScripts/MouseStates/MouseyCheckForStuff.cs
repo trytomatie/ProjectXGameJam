@@ -59,13 +59,17 @@ public class MouseyCheckForStuff : MouseBaseState
         //Debug.Log("CheckPlayerInView");
         //create a Vector 3 as an direction vector between Mousey and Player
         Vector3 vectorOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
-        Vector3 vectorBetween = player.transform.position - vectorOrigin;
+        Vector3 vectorBetween = (player.transform.position - vectorOrigin);
+        Vector2 forwardVector = new Vector2(Mouse.transform.forward.x, Mouse.transform.forward.z).normalized;
+
         //calculate the angle
-        float angle = Vector3.Angle(vectorBetween, vectorOrigin);
+        float angle = Vector2.Angle(forwardVector, new Vector2 (vectorBetween.x, vectorBetween.z).normalized);
+        Debug.Log("ANGLE " + angle);
         Debug.DrawRay(vectorOrigin, (vectorBetween.normalized * Mouse.mouseyViewingDistance), Color.yellow);
         //Check if the player is in Mouseys FieldOfView
         if (Mouse.mouseyFieldOfView > angle)
         {
+            Debug.Log("PLAYER IN VIEW");
             //Debug.Log("CheckPlayerInViewTrue");
 
             //Check if player can be seen

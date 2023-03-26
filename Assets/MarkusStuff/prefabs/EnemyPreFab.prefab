@@ -344,10 +344,10 @@ MonoBehaviour:
   mouseRayCastLayers:
     serializedVersion: 2
     m_Bits: 1843
-  mouseyFieldOfView: 90
-  eyeHeight: 1.5
-  mouseyViewingDistance: 20
-  catchDistance: 2
+  mouseyFieldOfView: 60
+  eyeHeight: 2
+  mouseyViewingDistance: 15
+  catchDistance: 0
   viewHeight: 0
   blendTime: 5
   eyes: {fileID: 6574467702984736997}
@@ -402,7 +402,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.085
   m_Pitch: 1
   Loop: 0
   Mute: 0
