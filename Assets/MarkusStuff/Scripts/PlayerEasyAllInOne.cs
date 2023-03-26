@@ -18,6 +18,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
     public float chaseIndex=0;
     public LayerMask layerMask;
     public float timeAtAim = 0;
+    public float stunTimeAt = 3;
     public Transform aimAt; 
 
     public float playerHeight = 1.1f; // distance to cast the ground raycast
@@ -122,7 +123,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
         //if countdown > number than 
 
         //It would be smarter to have this Time aimed at on the Enemy itself but it is a prototype so who cares
-        if (flashlightOnOff) { 
+        if (flashlightOnOff==true) { 
         if (Physics.Raycast(ray, out RaycastHit hit, 40, layerMask))
         {
             if (hit.transform.gameObject.GetComponent<MouseStateManager>() != null)
@@ -132,7 +133,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
                     if (lastAimedEnemy.GetComponent<MouseStateManager>().blendAble && checkFaceOffEnemy() )
                     {
                         timeAtAim += 1 * Time.deltaTime;
-                        if (timeAtAim > 2)
+                        if (timeAtAim > stunTimeAt)
                         {
                             lastAimedEnemy.GetComponent<MouseStateManager>().SwitchMouseState(lastAimedEnemy.GetComponent<MouseStateManager>().mouseyBlended);
                             timeAtAim = 0;
@@ -176,7 +177,7 @@ public class PlayerEasyAllInOne : MonoBehaviour
         {
             if (timeAtAim > 0)
             {
-                timeAtAim -= 1 * Time.deltaTime;
+                timeAtAim -= .2f * Time.deltaTime;
             }
         }
         }

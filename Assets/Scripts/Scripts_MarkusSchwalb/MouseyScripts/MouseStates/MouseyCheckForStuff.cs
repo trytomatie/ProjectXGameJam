@@ -62,7 +62,7 @@ public class MouseyCheckForStuff : MouseBaseState
         Vector3 vectorBetween = player.transform.position - vectorOrigin;
         //calculate the angle
         float angle = Vector3.Angle(vectorBetween, vectorOrigin);
-        //Debug.DrawRay(vectorOrigin, (vectorBetween.normalized * Mouse.mouseyViewingDistance), Color.yellow);
+        Debug.DrawRay(vectorOrigin, (vectorBetween.normalized * Mouse.mouseyViewingDistance), Color.yellow);
         //Check if the player is in Mouseys FieldOfView
         if (Mouse.mouseyFieldOfView > angle)
         {
