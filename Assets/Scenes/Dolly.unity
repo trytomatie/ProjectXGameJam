@@ -498,8 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1023320378}
-  m_PathPosition: 0
-  m_PositionUnits: 0
+  m_PathPosition: -3.76
+  m_PositionUnits: 1
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
   m_YDamping: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AutoDolly:
     m_Enabled: 1
-    m_PositionOffset: 0
+    m_PositionOffset: -3.76
     m_SearchRadius: -1
     m_SearchResolution: 10
 --- !u!114 &460046975
