@@ -1418,7 +1418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2864954321289360881}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.86, y: 0.63, z: 0.28}
+  m_LocalPosition: {x: 1.456, y: 0.842, z: 0.267}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1455,7 +1455,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.34
-  m_Radius: 0.5
+  m_Radius: 0.26
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1777,8 +1777,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3466666147747774336}
-  m_LocalRotation: {x: 0.2796949, y: 0.4714926, z: -0.16067281, w: 0.82076174}
-  m_LocalPosition: {x: -3.89, y: 4.87, z: -2.49}
+  m_LocalRotation: {x: 0.18221653, y: 0.7038579, z: -0.19481093, w: 0.6583539}
+  m_LocalPosition: {x: -3.95, y: 4.09, z: 0.62857294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 0}
-  m_PathPosition: -3.76
+  m_PathPosition: -3.397346
   m_PositionUnits: 1
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -2218,7 +2218,7 @@ ConfigurableJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_TargetPosition: {x: 0, y: 0.25, z: 0}
+  m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
@@ -2288,8 +2288,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3466666149831009691}
-  m_LocalRotation: {x: 0.2796949, y: 0.4714926, z: -0.16067281, w: 0.82076174}
-  m_LocalPosition: {x: -3.89, y: 4.87, z: -2.49}
+  m_LocalRotation: {x: 0.18221653, y: 0.7038579, z: -0.19481093, w: 0.6583539}
+  m_LocalPosition: {x: -3.95, y: 4.09, z: 0.62857294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2326,7 +2326,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.9694656, y: 1}
+    m_SensorSize: {x: 0.618567, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2350,7 +2350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3466666149832357577
 Transform:
   m_ObjectHideFlags: 0
@@ -5066,12 +5066,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 8000
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 8000
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -5097,7 +5097,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7122483588200836039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
