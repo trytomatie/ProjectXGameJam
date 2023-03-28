@@ -48,10 +48,11 @@ public class PlayerController : State
 
     private CharacterController cc;
     public Animator anim;
-    private Camera mainCamera;
+    public Camera mainCamera;
     private Volume chaseVolume;
     private Inventory inventory;
 
+    public ConfigurableJoint hip;
 
 
 
@@ -61,8 +62,8 @@ public class PlayerController : State
     {
         cc = GetComponent<CharacterController>();
         inventory = GetComponent<Inventory>();
-        mainCamera = Camera.main;
-        Cursor.lockState = CursorLockMode.Locked;
+        // mainCamera = Camera.main;
+        // Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -88,8 +89,21 @@ public class PlayerController : State
     {
         anim.SetFloat("speed", movementSpeed);
         anim.SetFloat("ySpeed", ySpeed / 12);
+        transform.position += anim.deltaPosition;
     }
 
+    private void Attack()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            anim.SetBool("attack", true);
+        }
+        else
+        {
+            anim.SetBool("attack", false);
+        }
+
+    }
 
     /// <summary>
     /// Handle Rotation
@@ -100,6 +114,7 @@ public class PlayerController : State
         {
             float rotation = Mathf.Atan2(lastMovement.x, lastMovement.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, rotation, 0), turnspeed * Time.deltaTime);
+            //hip.targetRotation =  Quaternion.Inverse(hip.transform.localRotation * Quaternion.Euler(transform.eulerAngles));
         }
     }
 
@@ -121,15 +136,25 @@ public class PlayerController : State
             targetSpeed = sneakSpeed;
         }
 
-        // If character is landing, he cant move
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
+        // If character is landing or attacking, he cant move
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
-            movement = new Vector3(horizontalInput * 0.1f, 0, verticalInput*0.1f).normalized;
+            movement = new Vector3(horizontalInput * 0, 0, verticalInput*0).normalized;
         }
         else
         {
             movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
         }
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
+        {
+            movement = new Vector3(horizontalInput * 1, 0, verticalInput * 1).normalized;
+        }
+        else
+        {
+            movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
+        }
+
 
 
         Vector3 cameraDependingMovement = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0) * movement;
@@ -218,6 +243,7 @@ public class PlayerController : State
         Movement();
         Rotation();
         Animations();
+        Attack();
 
     }
 
