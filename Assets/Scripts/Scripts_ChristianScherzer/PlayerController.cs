@@ -143,10 +143,10 @@ public class PlayerController : State
             + new Vector3(0, 0, 0) * Time.deltaTime
             + slideMovement;
         return;
-
+        /*
         cc.Move(lastMovement * movementSpeed * Time.deltaTime 
             + new Vector3(0, ySpeed, 0) * Time.deltaTime
-            + slideMovement);
+            + slideMovement);*/
     }
 
     /// <summary>
