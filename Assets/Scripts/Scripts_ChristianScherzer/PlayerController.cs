@@ -64,7 +64,7 @@ public class PlayerController : State
         cc = GetComponent<CharacterController>();
         inventory = GetComponent<Inventory>();
         // mainCamera = Camera.main;
-        // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 

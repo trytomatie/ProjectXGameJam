@@ -15,8 +15,8 @@ TagManager:
   - CharacterGuidance
   - PostProcessing
   - Not in Reflection
-  - 
-  - 
+  - Enemy
+  - CharacterCollider
   - 
   - 
   - 
