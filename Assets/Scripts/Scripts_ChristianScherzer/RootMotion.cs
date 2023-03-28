@@ -19,6 +19,8 @@ public class RootMotion : StateMachineBehaviour
      //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.transform.localPosition = Vector3.zero;
+        animator.transform.localEulerAngles = Vector3.zero;
         animator.applyRootMotion = false;
     }
 
