@@ -51,6 +51,7 @@ public class PlayerController : State
     public Camera mainCamera;
     private Volume chaseVolume;
     private Inventory inventory;
+    public AnimationCurve attackCurve;
 
     public ConfigurableJoint hip;
 
@@ -139,21 +140,22 @@ public class PlayerController : State
         // If character is landing or attacking, he cant move
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
-            movement = new Vector3(horizontalInput * 0, 0, verticalInput*0).normalized;
+            print(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            movement = new Vector3(lastMovement.x * 1, 0, lastMovement.y * 1).normalized * attackCurve.Evaluate(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         }
         else
         {
-            movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
+            {
+                movement = new Vector3(horizontalInput * 1, 0, verticalInput * 1).normalized;
+            }
+            else
+            {
+                movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
+            }
         }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
-        {
-            movement = new Vector3(horizontalInput * 1, 0, verticalInput * 1).normalized;
-        }
-        else
-        {
-            movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
-        }
+
 
 
 
