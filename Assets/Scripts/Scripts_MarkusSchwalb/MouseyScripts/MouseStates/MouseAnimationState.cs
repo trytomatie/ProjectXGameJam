@@ -16,7 +16,7 @@ public class MouseAnimationState : MouseBaseState
     /// <param name="Mouse"></param>
     public override void EnterMouseState(MouseStateManager Mouse)
     {
-        Mouse.lookAt.transform.position = Mouse.transform.forward * 5 + new Vector3(0,Mouse.viewHeight,0);
+        //Mouse.lookAt.transform.position = Mouse.transform.forward * 5 + new Vector3(0,Mouse.viewHeight,0);
     }
 
     /// <summary>
@@ -30,7 +30,7 @@ public class MouseAnimationState : MouseBaseState
         Mouse.mouseAnimator.SetFloat("Direction", speed);
         //Debug.Log("Gonna go fast "+ Mouse.navMeshMouseAgent.velocity);
 
-        updateLookAt(Mouse);
+        //updateLookAt(Mouse);
         
     }
 
@@ -38,7 +38,7 @@ public class MouseAnimationState : MouseBaseState
     /// update the Lookdirection of Mousey if mousey is chasing look at player otherwise look to the front
     /// </summary>
     /// <param name="Mouse"></param>
-    private void updateLookAt(MouseStateManager Mouse)
+    /*private void updateLookAt(MouseStateManager Mouse)
     {
         if (Mouse.currentState == Mouse.mChase)
         {
@@ -48,7 +48,7 @@ public class MouseAnimationState : MouseBaseState
         {
             Mouse.lookAt.transform.position = Vector3.Lerp(Mouse.lookAt.transform.position, Mouse.transform.position + Mouse.transform.forward * 5 + new Vector3(0, Mouse.viewHeight, 0), Time.deltaTime*5);
         }
-    }
+    }*/
 
     public override void ExitMouseState(MouseStateManager Mouse)
     {

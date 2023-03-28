@@ -25,13 +25,14 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
     public override void UpdateMouseState(MouseStateManager Mouse)
     {
+
         calculateDistance(Mouse);
 
         //Debug.Log("CheckForStuff");
         Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
         if (CheckPlayerInView(Mouse.player, Mouse))
         {
-            if (Mouse.currentState != Mouse.mouseCheese)
+            if (Mouse.currentState != Mouse.mouseyBlended && Mouse.player.GetComponent<PlayerEasyAllInOne>().isHidden==false)
             {
                 Mouse.SwitchMouseState(Mouse.mChase);
             }
@@ -54,19 +55,25 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <returns></returns>
     private bool CheckPlayerInView(GameObject player, MouseStateManager Mouse)
     {
+        
         //Debug.Log("CheckPlayerInView");
         //create a Vector 3 as an direction vector between Mousey and Player
-        Vector3 vectorBetween = player.transform.position - Mouse.transform.position;
-        //calculate the angle
-        float angle = Vector3.Angle(vectorBetween, Mouse.transform.forward);
+        Vector3 vectorOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
+        Vector3 vectorBetween = (player.transform.position - vectorOrigin);
+        Vector2 forwardVector = new Vector2(Mouse.transform.forward.x, Mouse.transform.forward.z).normalized;
 
+        //calculate the angle
+        float angle = Vector2.Angle(forwardVector, new Vector2 (vectorBetween.x, vectorBetween.z).normalized);
+        //Debug.Log("ANGLE " + angle);
+        Debug.DrawRay(vectorOrigin, (vectorBetween.normalized * Mouse.mouseyViewingDistance), Color.yellow);
         //Check if the player is in Mouseys FieldOfView
         if (Mouse.mouseyFieldOfView > angle)
         {
+            Debug.Log("PLAYER IN VIEW");
             //Debug.Log("CheckPlayerInViewTrue");
 
             //Check if player can be seen
-            if (playerHitByRaycast(Mouse, vectorBetween))
+            if (playerHitByRaycast(Mouse, vectorBetween, vectorOrigin))
             {
                 return true;
             }
@@ -82,17 +89,17 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
     /// <param name="vectorToPlayer"></param>
     /// <returns></returns>
-    private bool playerHitByRaycast(MouseStateManager Mouse, Vector3 vectorToPlayer)
+    private bool playerHitByRaycast(MouseStateManager Mouse, Vector3 vectorToPlayer, Vector3 vectorOrigin)
     {
         //Debug.Log("playerHitbyRaycasttest");
 
         //calculate Raycast origin 
-        Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
+        //Vector3 rayCastOrigin = new Vector3(Mouse.transform.position.x, Mouse.transform.position.y + Mouse.eyeHeight, Mouse.transform.position.z);
         
         RaycastHit hit;
 
         
-        if(Physics.Raycast(rayCastOrigin, vectorToPlayer, out hit, Mouse.mouseyViewingDistance, Mouse.mouseRayCastLayers))
+        if(Physics.Raycast(vectorOrigin, vectorToPlayer, out hit, Mouse.mouseyViewingDistance, Mouse.mouseRayCastLayers))
         {
             if (hit.collider != null)
             {
@@ -103,13 +110,13 @@ public class MouseyCheckForStuff : MouseBaseState
                 if (hitObject.CompareTag("Player"))
                 {
                     //Debug.Log("Hitplayer");
-                    //Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * hit.distance), Color.green);
+                    Debug.DrawRay(vectorOrigin, (vectorToPlayer.normalized * hit.distance), Color.green);
                     return true;
                 }
                 
             }
         }
-        //Debug.DrawRay(rayCastOrigin, (vectorToPlayer.normalized * Mouse.mouseyViewingDistance), Color.red);
+        Debug.DrawRay(vectorOrigin, (vectorToPlayer.normalized * Mouse.mouseyViewingDistance), Color.red);
 
         return false;
         
@@ -123,7 +130,7 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
    public void MouseTrigger(Collider other, MouseStateManager Mouse)
     {
-        if (Mouse.currentState != Mouse.mChase)
+        /*if (Mouse.currentState != Mouse.mChase)
         {
             if (other.gameObject.GetComponent<Interactable_Item>() != null)
             {
@@ -135,7 +142,7 @@ public class MouseyCheckForStuff : MouseBaseState
                     Mouse.SwitchMouseState(Mouse.mouseCheese);
                 }
             }
-        }
+        }*/
         
     }
 
@@ -148,7 +155,8 @@ public class MouseyCheckForStuff : MouseBaseState
         distance = Vector3.Distance(Mouse.player.transform.position, Mouse.transform.position);
         if (Mouse.currentState == Mouse.mChase && distance < Mouse.catchDistance)
         {
-            SceneManager.LoadScene(2);
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex);
             Debug.Log("verloren");
         }
     }
@@ -159,11 +167,11 @@ public class MouseyCheckForStuff : MouseBaseState
     /// <param name="Mouse"></param>
     private void CheckForNoise(MouseStateManager Mouse)
     {
-        
-        PlayerController player = Mouse.player.GetComponent<PlayerController>();
-        if (player.noise > distance && Mouse.currentState != Mouse.mouseCheese)
+
+        /*PlayerEasyAllInOne player = Mouse.player.GetComponent<PlayerEasyAllInOne>();
+        if (player.noise > distance )
         {
             Mouse.SwitchMouseState(Mouse.mChase);
-        }
+        }*/
     }
 }
