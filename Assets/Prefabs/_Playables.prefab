@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 4340078063107322664}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1066340839654834932
@@ -569,6 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 9039440921181464132}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1222416000691251783
@@ -873,6 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 5642583052239647720}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1694019605742649422
@@ -1049,6 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 4431697559863891320}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1694019606344807363
@@ -1323,6 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 7550794856619972143}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2524268722376718493
@@ -1382,15 +1387,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2864954320619890453}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 1.456, y: 0.722, z: 0.267}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7916524996888592392}
   - {fileID: 7662765879490191787}
-  m_Father: {fileID: 2864954321289360880}
-  m_RootOrder: 1
+  m_Father: {fileID: 2864954321474870006}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2864954321289360881
 GameObject:
@@ -1425,7 +1430,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3466666149223755038}
-  - {fileID: 2864954320619890452}
   m_Father: {fileID: 2864954321474870006}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1574,6 +1578,7 @@ Transform:
   - {fileID: 3466666149831009690}
   - {fileID: 3466666147747774340}
   - {fileID: 2864954321289360880}
+  - {fileID: 2864954320619890452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1751,6 +1756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 2440949078673344666}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &3315220570696723208
@@ -1812,8 +1818,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3466666147747774336}
-  m_LocalRotation: {x: 0.12291149, y: 0.63192105, z: -0.10242166, w: 0.7583392}
-  m_LocalPosition: {x: -2.7538023, y: 2.442, z: -0.5049889}
+  m_LocalRotation: {x: 0.12290969, y: 0.63193446, z: -0.10242385, w: 0.7583281}
+  m_LocalPosition: {x: -2.7538295, y: 2.442, z: -0.5048399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2165,6 +2171,7 @@ GameObject:
   - component: {fileID: 3466666149223755038}
   - component: {fileID: 3466666149223755036}
   - component: {fileID: 3466666149223755037}
+  - component: {fileID: 1188652216}
   m_Layer: 3
   m_Name: Stabilizer
   m_TagString: Untagged
@@ -2180,7 +2187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3466666149223755039}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2253,7 +2260,7 @@ ConfigurableJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_TargetPosition: {x: 0, y: 0.02, z: 0}
+  m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
@@ -2299,6 +2306,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1188652216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3466666149223755039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f808156e6c3ce49a1ce1d6aab633d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2864954321289360880}
+  minRagdollTime: 2
+  force: {x: 0, y: 22.77, z: 0}
+  standUpHeight: 0.4
 --- !u!1 &3466666149831009691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,6 +2857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 2054309817393280512}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5036188918925276036
@@ -3136,6 +3160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 5645628695684479043}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5068839270711708781
@@ -3376,6 +3401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 1072849637238562973}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5220380926384036044
@@ -3553,6 +3579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 8388105217507965320}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5220380926851443521
@@ -3760,6 +3787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 5497607468311365300}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5351908944600646733
@@ -4096,6 +4124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 4026571410227909507}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6033808373466058636
@@ -4304,6 +4333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 4013076967913593426}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6501613579061850936
@@ -4574,6 +4604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 795560297688496313}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6561824197118792459
@@ -5137,6 +5168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 2740385652556251455}
   targetRotationOffset: {x: 19.81, y: 26.34, z: -1.87}
 --- !u!65 &7916524998741737259
@@ -5579,6 +5611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 1144346775366238173}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8053007816398144518
@@ -5787,6 +5820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 4510530146573457733}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8359941752951997487
@@ -6026,6 +6060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stabilizer: {fileID: 0}
   targetLimb: {fileID: 2481263407559029420}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8675140577715727099

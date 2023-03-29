@@ -9,6 +9,10 @@ public class EnemyAI : MonoBehaviour
     public Transform waypoint;
     public Animator anim;
     public float aggroRadius = 3;
+    public float attackCooldown = 4;
+    private float attackTimer;
+
+    public StabilizerController stabilizer;
         // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +32,10 @@ public class EnemyAI : MonoBehaviour
             agent.destination = transform.position;
         }
 
-        if(agent.destination != transform.position && Vector3.Distance(agent.destination, transform.position) < 1)
+        if(!stabilizer.ragdolling && attackTimer < Time.time && agent.destination != transform.position && Vector3.Distance(agent.destination, transform.position) < 1)
         {
             anim.SetBool("attack", true);
+            attackTimer = Time.time + attackCooldown;
         }
         else
         {
@@ -42,6 +47,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Animate()
     {
+        if (stabilizer.ragdolling)
+            return;
         anim.SetFloat("speed", agent.velocity.magnitude);
     }
 

@@ -51,6 +51,7 @@ public class StateMachine : MonoBehaviour
         currentState.UpdateState(gameObject);
 
         if (state == currentState)
+
         return;
 
         currentState?.ExitState(gameObject);

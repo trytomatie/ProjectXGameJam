@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(ConfigurableJoint))]
 public class CopyLimb : MonoBehaviour
 {
+    public StabilizerController stabilizer;
     public Transform targetLimb;
     private ConfigurableJoint configurableJoint;
 
@@ -29,4 +30,5 @@ public class CopyLimb : MonoBehaviour
     {
         return Quaternion.Inverse(this.targetLimb.localRotation * Quaternion.Euler(targetRotationOffset)) * this.targetInitialRotation;
     }
+
 }

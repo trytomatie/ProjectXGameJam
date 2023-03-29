@@ -55,6 +55,8 @@ public class PlayerController : State
 
     public ConfigurableJoint hip;
 
+    public StabilizerController stabilizer;
+
 
 
 
@@ -88,6 +90,13 @@ public class PlayerController : State
     /// </summary>
     private void Animations()
     {
+        if (stabilizer.ragdolling)
+        {
+            anim.SetFloat("speed", 0);
+            anim.SetFloat("ySpeed", 0);
+            return;
+        }
+
         anim.SetFloat("speed", movementSpeed);
         anim.SetFloat("ySpeed", ySpeed / 12);
         transform.position += anim.deltaPosition;
@@ -140,7 +149,6 @@ public class PlayerController : State
         // If character is landing or attacking, he cant move
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
-            print(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
             movement = new Vector3(lastMovement.x * 1, 0, lastMovement.y * 1).normalized * attackCurve.Evaluate(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         }
         else
@@ -191,7 +199,7 @@ public class PlayerController : State
     {
         if (Input.GetButtonDown("Jump") && !isJumping && grounded )
         {
-            print("test");
+
             isJumping = true;
             ySpeed += jumpStrength;
             anim.SetTrigger("jump");
