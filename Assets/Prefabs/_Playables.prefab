@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 7916524997342181207}
   m_Layer: 3
   m_Name: mixamorig:Head
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 4340078063107322664}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1066340839654834932
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 7916524997141374583}
   m_Layer: 3
   m_Name: mixamorig:Spine1
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 9039440921181464132}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1222416000691251783
@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 7916524997141801870}
   m_Layer: 3
   m_Name: mixamorig:RightForeArm
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 5642583052239647720}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1694019605742649422
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 7916524998848709486}
   m_Layer: 3
   m_Name: mixamorig:LeftArm
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 4431697559863891320}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1694019606344807363
@@ -1166,7 +1166,7 @@ GameObject:
   - component: {fileID: 7916524998466995000}
   m_Layer: 3
   m_Name: mixamorig:Spine2
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 7550794856619972143}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2524268722376718493
@@ -1532,6 +1532,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   hip: {fileID: 7916524998741737267}
+  stabilizer: {fileID: 1188652216}
 --- !u!114 &2864954321289360895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1597,7 +1598,7 @@ GameObject:
   - component: {fileID: 7916524997997551291}
   m_Layer: 3
   m_Name: mixamorig:RightLeg
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1756,7 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 2440949078673344666}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &3315220570696723208
@@ -1818,8 +1819,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3466666147747774336}
-  m_LocalRotation: {x: 0.12290969, y: 0.63193446, z: -0.10242385, w: 0.7583281}
-  m_LocalPosition: {x: -2.7538295, y: 2.442, z: -0.5048399}
+  m_LocalRotation: {x: 0.12291149, y: 0.63192105, z: -0.10242166, w: 0.7583392}
+  m_LocalPosition: {x: -2.7538023, y: 2.442, z: -0.5049889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2075,6 +2076,7 @@ GameObject:
   - component: {fileID: 3466666149172647282}
   - component: {fileID: 3466666149172647283}
   - component: {fileID: 3466666149172647281}
+  - component: {fileID: 1484364994}
   m_Layer: 3
   m_Name: Sword
   m_TagString: Untagged
@@ -2160,6 +2162,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21501336, y: 1.2564571, z: 0.05397066}
   m_Center: {x: -0.00000035819585, y: 0.4882285, z: -0.00000026855918}
+--- !u!114 &1484364994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3466666149172647294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed946695f59040b4b93a1e7fd8d866aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stabilizer: {fileID: 1188652216}
+  anim: {fileID: 4375159229103930321}
 --- !u!1 &3466666149223755039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,6 +2338,7 @@ MonoBehaviour:
   minRagdollTime: 2
   force: {x: 0, y: 22.77, z: 0}
   standUpHeight: 0.4
+  ragdolling: 0
 --- !u!1 &3466666149831009691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,7 +2715,7 @@ GameObject:
   - component: {fileID: 7916524996949870704}
   m_Layer: 3
   m_Name: mixamorig:RightUpLeg
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2857,7 +2874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 2054309817393280512}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5036188918925276036
@@ -3001,7 +3018,7 @@ GameObject:
   - component: {fileID: 7916524997772934325}
   m_Layer: 3
   m_Name: mixamorig:LeftUpLeg
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3160,7 +3177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 5645628695684479043}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5068839270711708781
@@ -3242,7 +3259,7 @@ GameObject:
   - component: {fileID: 7916524997833463812}
   m_Layer: 3
   m_Name: mixamorig:LeftLeg
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3401,7 +3418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 1072849637238562973}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5220380926384036044
@@ -3419,7 +3436,7 @@ GameObject:
   - component: {fileID: 7916524997977224533}
   m_Layer: 3
   m_Name: mixamorig:RightHand
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3579,7 +3596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 8388105217507965320}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5220380926851443521
@@ -3629,7 +3646,7 @@ GameObject:
   - component: {fileID: 7916524996817866265}
   m_Layer: 3
   m_Name: mixamorig:LeftShoulder
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3787,7 +3804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 5497607468311365300}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &5351908944600646733
@@ -3965,7 +3982,7 @@ GameObject:
   - component: {fileID: 7916524998515067557}
   m_Layer: 3
   m_Name: mixamorig:LeftHand
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4124,7 +4141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 4026571410227909507}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6033808373466058636
@@ -4174,7 +4191,7 @@ GameObject:
   - component: {fileID: 7916524997187877486}
   m_Layer: 3
   m_Name: mixamorig:Neck
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4333,7 +4350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 4013076967913593426}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6501613579061850936
@@ -4445,7 +4462,7 @@ GameObject:
   - component: {fileID: 7916524997280019077}
   m_Layer: 3
   m_Name: mixamorig:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4604,7 +4621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 795560297688496313}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6561824197118792459
@@ -5021,7 +5038,7 @@ GameObject:
   - component: {fileID: 7916524998741737259}
   m_Layer: 3
   m_Name: mixamorig:Hips
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5168,7 +5185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 2740385652556251455}
   targetRotationOffset: {x: 19.81, y: 26.34, z: -1.87}
 --- !u!65 &7916524998741737259
@@ -5453,7 +5470,7 @@ GameObject:
   - component: {fileID: 7916524997291720974}
   m_Layer: 3
   m_Name: mixamorig:RightShoulder
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5611,7 +5628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 1144346775366238173}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8053007816398144518
@@ -5661,7 +5678,7 @@ GameObject:
   - component: {fileID: 7916524997395249620}
   m_Layer: 3
   m_Name: mixamorig:RightArm
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5820,7 +5837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 4510530146573457733}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8359941752951997487
@@ -5902,7 +5919,7 @@ GameObject:
   - component: {fileID: 7916524996859521865}
   m_Layer: 3
   m_Name: mixamorig:Spine
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6060,7 +6077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d05608fe4de334f9060479a7fba87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizer: {fileID: 0}
+  stabilizer: {fileID: 1188652216}
   targetLimb: {fileID: 2481263407559029420}
   targetRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8675140577715727099

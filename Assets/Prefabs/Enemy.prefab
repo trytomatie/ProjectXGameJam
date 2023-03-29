@@ -2704,6 +2704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stabilizer: {fileID: 1599457675}
+  anim: {fileID: 1021887945868314770}
 --- !u!1 &1021887946116197699
 GameObject:
   m_ObjectHideFlags: 0
@@ -4028,7 +4029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021887946574420413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4101,7 +4102,7 @@ ConfigurableJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_TargetPosition: {x: 0, y: 0, z: 0}
+  m_TargetPosition: {x: 0, y: 0.35, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
@@ -4163,6 +4164,7 @@ MonoBehaviour:
   minRagdollTime: 2
   force: {x: 0, y: 0, z: 0}
   standUpHeight: 0.4
+  ragdolling: 0
 --- !u!1 &1021887946579082723
 GameObject:
   m_ObjectHideFlags: 0
@@ -5831,6 +5833,7 @@ MonoBehaviour:
   anim: {fileID: 1021887945868314770}
   aggroRadius: 8.53
   attackCooldown: 3
+  stabilizer: {fileID: 1599457675}
 --- !u!1001 &1021887946058560442
 PrefabInstance:
   m_ObjectHideFlags: 0
