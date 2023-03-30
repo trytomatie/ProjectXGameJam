@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public Transform waypoint;
+    public Transform target;
     public Animator anim;
     public float aggroRadius = 3;
     public float attackCooldown = 4;
@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("PlayerStabilizer").transform;
         agent = GetComponent<NavMeshAgent>();
 
     }
@@ -23,9 +24,9 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(waypoint.position,transform.position) < aggroRadius)
+        if(Vector3.Distance(target.position,transform.position) < aggroRadius)
         {
-            agent.destination = waypoint.position;
+            agent.destination = target.position;
         }
         else
         {
