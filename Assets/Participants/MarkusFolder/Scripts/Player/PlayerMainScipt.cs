@@ -11,7 +11,10 @@ public class PlayerMainScipt : MonoBehaviour
     public PlayerIdleState plIdle = new PlayerIdleState();
     [HideInInspector]
     public PlayerMoveState plMove = new PlayerMoveState();
-
+    [HideInInspector]
+    public PlayerTargetState plTarget = new PlayerTargetState();
+    [HideInInspector]
+    public PlayerCarryState plCarry = new PlayerCarryState();
     //layer
     public LayerMask groundLayer; // the layer(s) that the player can stand on
 
@@ -23,6 +26,9 @@ public class PlayerMainScipt : MonoBehaviour
     //Components
     [HideInInspector]
     public CharacterController plCharacterController;
+
+
+
     [HideInInspector]
     public Animator plAnimator;
 
@@ -36,6 +42,10 @@ public class PlayerMainScipt : MonoBehaviour
     public GameObject leftHandIK;
 
     public GameObject sideLight;
+    public Transform handRight;
+    public Transform holster;
+    public GameObject weaponHand;
+    public Transform carryHelperObject;
 
     //GameplayStuff
     public float health;
@@ -43,12 +53,14 @@ public class PlayerMainScipt : MonoBehaviour
     public float speed;
     public float damage;
     public float playerHeight;
+    public float throwStrength;
 
     //Private
     private float verticalInput;
     private float horizontalInput;
 
     private bool sideLightBool;
+    private bool weaponOut = false;
 
     // Start is called before the first frame update
     void Start()
@@ -68,9 +80,38 @@ public class PlayerMainScipt : MonoBehaviour
     void Update()
     {
         CheckSideLight();
+        CheckAttack();
 
         //Update current state //Movement State // Target State // climbing state // interacting state // Carrying // Dragging
         currentState.UpdatePlayerState(this);
+        updateWeapon();
+    }
+
+    private void updateWeapon()
+    {
+        if (weaponOut)
+        {
+            weaponHand.transform.position = handRight.transform.position;
+            weaponHand.transform.rotation = handRight.transform.rotation;
+        }
+        else
+        {
+            weaponHand.transform.position = holster.transform.position;
+            weaponHand.transform.rotation = holster.transform.rotation;
+        }
+    }
+
+    private void CheckAttack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (currentState != plMove || currentState != plTarget)
+            {
+                SwitchPlayerState(plMove);
+            }
+            weaponOut = true;
+            plAnimator.SetTrigger("Attack");
+        }
     }
 
     private void CheckSideLight()
@@ -82,10 +123,57 @@ public class PlayerMainScipt : MonoBehaviour
         }
     }
 
-    public void SwitchMouseState(PlayerBaseState newPlayerState)
+    public void SwitchPlayerState(PlayerBaseState newPlayerState)
     {
         currentState.ExitPlayerState(this);
         currentState = newPlayerState;
         currentState.EnterPlayerState(this);
+    }
+
+    public void AttackStart()
+    {
+        //wenn eine Waffe in der Hand ist dann 
+        if (weaponHand.transform.GetChild(0).GetComponent<WeaponScript>()!=null)
+        {
+            weaponHand.transform.GetChild(0).GetComponent<WeaponScript>().weaponCollider.enabled = true;
+            //Debug.Log("GotChild" + weaponHand.transform.GetChild(0));
+            /*if (weaponHand.transform.GetChild(0).GetComponent<WeaponScript>().weaponCollider.enabled == true)
+            {
+                Debug.Log("EnabledCollider");
+            }*/
+        }
+
+    }
+
+    public void AttackEnd()
+    {
+        if (weaponHand.transform.GetChild(0).GetComponent<WeaponScript>() != null)
+        {
+            weaponHand.transform.GetChild(0).GetComponent<WeaponScript>().weaponCollider.enabled = false;
+            //Debug.Log("GotChild" + weaponHand.transform.GetChild(0));
+        }
+    }
+
+    public void DealDamage(Collider other, float damage, bool lightDamage)
+    {
+        if (other.gameObject.GetComponent<EnemyScript>() != null)
+        {
+            other.gameObject.GetComponent<EnemyScript>().GetDamage(damage, lightDamage);
+            Debug.Log("MainPlayer DealDamage Throw");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        currentState.PlayerTriggerEnter(this, other);
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        currentState.PlayerTriggerStay(this, other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        currentState.PlayerTriggerExit(this, other);
     }
 }

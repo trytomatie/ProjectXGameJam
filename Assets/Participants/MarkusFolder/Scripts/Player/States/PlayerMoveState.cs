@@ -113,20 +113,35 @@ public class PlayerMoveState : PlayerBaseState
         
     }
 
-    public override void PlayerTriggerEnter(PlayerMainScipt player)
+    public override void PlayerTriggerEnter(PlayerMainScipt player, Collider other)
     {
         
     }
 
-    public override void PlayerTriggerExit(PlayerMainScipt player)
+    public override void PlayerTriggerExit(PlayerMainScipt player, Collider other)
     {
         
     }
 
-    public override void PlayerTriggerStay(PlayerMainScipt player)
+    public override void PlayerTriggerStay(PlayerMainScipt player, Collider other)
     {
-        
+        if (other.CompareTag("CarryAble"))
+        {
+            if (AngleBetween(player, other)<90 && Input.GetKeyDown(KeyCode.E))
+            {
+                other.gameObject.transform.SetParent(player.carryHelperObject);
+                other.GetComponent<Rigidbody>().useGravity = false;
+                player.SwitchPlayerState(player.plCarry);
+            }
+        }
     }
 
-    
+    private float AngleBetween(PlayerMainScipt player, Collider other)
+    {
+        Vector3 vectorBetween = other.transform.position - player.transform.position;
+        Vector2 vector2Between = new Vector2 (vectorBetween.x, vectorBetween.y);
+        Vector2 playerVector2 = new Vector2 (player.transform.forward.x, player.transform.forward.y);
+        //Debug.Log(Vector2.Angle(playerVector2, vectorBetween));
+        return Vector2.Angle(playerVector2, vector2Between) ;
+    }
 }

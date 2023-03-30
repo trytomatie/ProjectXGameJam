@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 27c40a3280195f04b97bba3272308ff9
+guid: fe77ef8f9299a384c9989e76fb9c4b3c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: PlayerAttack
+    second: Standing Melee Attack Horizontal
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -20,14 +20,7 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
-      : position error = 31.986877 mm\n\t'mixamorig:LeftLeg' : position error = 20.996090
-      mm\n\t'mixamorig:LeftFoot' : position error = 69.519989 mm\n\t'mixamorig:LeftToeBase'
-      : position error = 16.476307 mm\n\t'mixamorig:RightUpLeg' : position error
-      = 32.447117 mm\n\t'mixamorig:RightLeg' : position error = 20.809769 mm\n\t'mixamorig:RightFoot'
-      : position error = 69.428505 mm\n\t'mixamorig:RightToeBase' : position error
-      = 13.510674 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -43,7 +36,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: PlayerAttack
+      name: Standing Melee Attack Horizontal
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
@@ -67,14 +60,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.20344697
+      - time: 0.22263451
         functionName: AttackStart
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: 8b828655151b66945b7a612adbe4f8dc, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6704762
+      - time: 0.38218924
         functionName: AttackEnd
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 8b828655151b66945b7a612adbe4f8dc, type: 3}

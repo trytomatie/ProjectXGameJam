@@ -15,10 +15,10 @@ public abstract class PlayerBaseState
 
     public abstract void ExitPlayerState(PlayerMainScipt player);
 
-    public abstract void PlayerTriggerEnter(PlayerMainScipt player);
+    public abstract void PlayerTriggerEnter(PlayerMainScipt player, Collider other);
 
-    public abstract void PlayerTriggerExit(PlayerMainScipt player);
+    public abstract void PlayerTriggerExit(PlayerMainScipt player, Collider other);
 
-    public abstract void PlayerTriggerStay(PlayerMainScipt player);
+    public abstract void PlayerTriggerStay(PlayerMainScipt player, Collider other);
 
 }

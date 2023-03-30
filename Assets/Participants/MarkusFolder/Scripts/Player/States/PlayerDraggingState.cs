@@ -12,15 +12,15 @@ public class PlayerDraggingState : PlayerBaseState
     {
     }
 
-    public override void PlayerTriggerEnter(PlayerMainScipt player)
+    public override void PlayerTriggerEnter(PlayerMainScipt player, Collider other)
     {
     }
 
-    public override void PlayerTriggerExit(PlayerMainScipt player)
+    public override void PlayerTriggerExit(PlayerMainScipt player, Collider other)
     {
     }
 
-    public override void PlayerTriggerStay(PlayerMainScipt player)
+    public override void PlayerTriggerStay(PlayerMainScipt player, Collider other)
     {
     }
 

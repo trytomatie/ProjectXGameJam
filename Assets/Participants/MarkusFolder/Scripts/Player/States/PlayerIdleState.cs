@@ -21,17 +21,17 @@ public class PlayerIdleState : PlayerBaseState
         throw new System.NotImplementedException();
     }
 
-    public override void PlayerTriggerEnter(PlayerMainScipt player)
+    public override void PlayerTriggerEnter(PlayerMainScipt player, Collider other)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void PlayerTriggerExit(PlayerMainScipt player)
+    public override void PlayerTriggerExit(PlayerMainScipt player, Collider other)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void PlayerTriggerStay(PlayerMainScipt player)
+    public override void PlayerTriggerStay(PlayerMainScipt player, Collider other)
     {
         throw new System.NotImplementedException();
     }
