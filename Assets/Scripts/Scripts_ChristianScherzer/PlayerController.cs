@@ -197,14 +197,13 @@ public class PlayerController : State
     /// </summary>
     private void HandleJump()
     {
-        if (Input.GetButtonDown("Jump") && !isJumping && grounded )
+        if (Input.GetButtonDown("Jump") && !isJumping && (grounded || (ySpeed > (-0.5f * 12))))
         {
-
             isJumping = true;
-            ySpeed += jumpStrength;
+            ySpeed = jumpStrength;
             anim.SetTrigger("jump");
         }
-        if (grounded && isJumping && ySpeed <= 0)
+        if (grounded && isJumping && ySpeed <= 0.07)
         {
             isJumping = false;
             anim.SetTrigger("land");

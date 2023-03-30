@@ -31,6 +31,9 @@ public class SwordCollider : MonoBehaviour
                 {
                     targetLimb.stabilizer.force = collision.impulse.normalized * 333;
                     targetLimb.stabilizer.AddForceToStabilizer();
+                    StatusManager targetStatus = targetLimb.stabilizer.controller.GetComponent<StatusManager>();
+                    targetStatus.Hp -= 1;
+
                 }
             }
         }

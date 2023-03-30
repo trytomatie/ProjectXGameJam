@@ -5772,6 +5772,7 @@ GameObject:
   - component: {fileID: 5743466835185094829}
   - component: {fileID: 5743466835185094831}
   - component: {fileID: 5743466835185094828}
+  - component: {fileID: 1155878407}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -5829,11 +5830,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb60be656e6a55f4388b72bdf5e939e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {fileID: 0}
+  target: {fileID: 0}
   anim: {fileID: 1021887945868314770}
   aggroRadius: 8.53
   attackCooldown: 3
   stabilizer: {fileID: 1599457675}
+--- !u!114 &1155878407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743466835185094830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b5393578bb6d449ac9670acca3b7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 3
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1599457675}
+        m_TargetAssemblyTypeName: StabilizerController, Assembly-CSharp
+        m_MethodName: IndefinteRagdoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1021887946058560442
 PrefabInstance:
   m_ObjectHideFlags: 0

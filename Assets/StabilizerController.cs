@@ -78,4 +78,9 @@ public class StabilizerController : MonoBehaviour
         stabilizer.transform.localPosition = Vector3.zero;
         ragdolling = false;
     }
+
+    public void IndefinteRagdoll()
+    {
+        minRagdollTime = 3000;
+    }
 }
