@@ -15,8 +15,11 @@ public class PlayerMainScipt : MonoBehaviour
     public PlayerTargetState plTarget = new PlayerTargetState();
     [HideInInspector]
     public PlayerCarryState plCarry = new PlayerCarryState();
+    [HideInInspector]
+    public PlayerDraggingState plDragg = new PlayerDraggingState();
     //layer
     public LayerMask groundLayer; // the layer(s) that the player can stand on
+    public LayerMask plLayerMask;
 
     //Public
     public PlayerBaseState currentState;
@@ -46,6 +49,11 @@ public class PlayerMainScipt : MonoBehaviour
     public Transform holster;
     public GameObject weaponHand;
     public Transform carryHelperObject;
+    public GameObject dragHelper;
+    public GameObject dragItem;
+    //other
+    public bool weaponOut = false;
+
 
     //GameplayStuff
     public float health;
@@ -60,7 +68,6 @@ public class PlayerMainScipt : MonoBehaviour
     private float horizontalInput;
 
     private bool sideLightBool;
-    private bool weaponOut = false;
 
     // Start is called before the first frame update
     void Start()

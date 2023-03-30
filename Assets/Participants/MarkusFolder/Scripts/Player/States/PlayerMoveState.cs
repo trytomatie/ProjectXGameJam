@@ -46,6 +46,24 @@ public class PlayerMoveState : PlayerBaseState
         player.plAnimator.SetFloat("MoveVertical", verticalInput * player.speed);
 
         checkJump(player);
+        checkDrag(player);
+    }
+
+    private void checkDrag(PlayerMainScipt player)
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(player.transform.position, player.transform.forward, out hit, 3, player.plLayerMask))
+        {
+            Debug.Log(hit.collider.gameObject);
+            if (hit.collider.gameObject.CompareTag("DraggAble") && Input.GetMouseButton(1))
+            {
+                Debug.Log("initialize plDragg");
+
+                player.dragItem = hit.collider.gameObject;
+                player.SwitchPlayerState(player.plDragg);
+            }
+        }
     }
 
     private void CheckSprint()
@@ -134,6 +152,15 @@ public class PlayerMoveState : PlayerBaseState
                 player.SwitchPlayerState(player.plCarry);
             }
         }
+        /*if (other.CompareTag("DraggAble"))
+        {
+            if (AngleBetween(player, other) < 90 && Input.GetMouseButtonDown(1))
+            {
+                //other.gameObject.transform.SetParent(player.dragHelper.transform
+                player.dragItem = other.gameObject;
+                player.SwitchPlayerState(player.plDragg);
+            }
+        }*/
     }
 
     private float AngleBetween(PlayerMainScipt player, Collider other)

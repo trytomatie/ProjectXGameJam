@@ -8,6 +8,7 @@ TagManager:
   - LightSource
   - Enemy
   - CarryAble
+  - DraggAble
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ public class PlayerCarryState : PlayerBaseState
     private float verticalInput;
     float turnSmoothVelocity = 3;
     float turnSmoothTime = 0.1f;
-    float gravityValue = -9.81f;
+    //float gravityValue = -9.81f;
 
     bool groundedPlayer;
     float sprintMultiply;
@@ -22,6 +22,7 @@ public class PlayerCarryState : PlayerBaseState
         carriedItem.transform.rotation = player.carryHelperObject.gameObject.transform.rotation;
         carriedItem.GetComponent<Rigidbody>().isKinematic = true;
         Debug.Log(carriedItem);
+        player.weaponOut = false;
     }
 
     public override void ExitPlayerState(PlayerMainScipt player)
@@ -75,7 +76,7 @@ public class PlayerCarryState : PlayerBaseState
 
     private void CheckThrow(PlayerMainScipt player)
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             carriedItem.GetComponent<Rigidbody>().isKinematic = false;
             carriedItem.GetComponent<Rigidbody>().useGravity = true;
