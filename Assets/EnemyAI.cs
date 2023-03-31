@@ -5,9 +5,12 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    public enum State { Walking, Attacking };
+    public State state = State.Walking;
     private NavMeshAgent agent;
     public Transform target;
     public Animator anim;
+    public float attackDelay = 1;
     public float aggroRadius = 3;
     public float attackCooldown = 4;
     private float attackTimer;
@@ -33,14 +36,22 @@ public class EnemyAI : MonoBehaviour
             agent.destination = transform.position;
         }
 
-        if(!stabilizer.ragdolling && attackTimer < Time.time && agent.destination != transform.position && Vector3.Distance(agent.destination, transform.position) < 1)
+        if(attackTimer < Time.time && agent.destination != transform.position && Vector3.Distance(agent.destination, transform.position) < 1 && !IsInvoking("Attack"))
         {
-            anim.SetBool("attack", true);
             attackTimer = Time.time + attackCooldown;
+            state = State.Attacking;
+            Invoke("Attack", attackDelay);
         }
-        else
+
+        switch(state)
         {
-            anim.SetBool("attack", false);
+            case State.Walking:
+                agent.speed = 2;
+                anim.SetBool("attack", false);
+                break;
+            case State.Attacking:
+                agent.speed = 0;
+                break;
         }
 
         Animate();
@@ -49,7 +60,11 @@ public class EnemyAI : MonoBehaviour
     private void Animate()
     {
         if (stabilizer.ragdolling)
+        {
+            anim.SetFloat("speed", 0);
             return;
+        }
+
         anim.SetFloat("speed", agent.velocity.magnitude);
     }
 
@@ -57,5 +72,14 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, aggroRadius);
+    }
+
+    private void Attack()
+    {
+        if (!stabilizer.ragdolling)
+        {
+            anim.SetBool("attack", true);
+        }
+        state = State.Walking;
     }
 }
