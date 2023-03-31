@@ -21,7 +21,8 @@ public class MoveableObjectHandler : MonoBehaviour
         if (Physics.Raycast(transform.position + new Vector3(0, 0.5f,0), new Vector3(0, -1, 0), out raycastHit, 4f, layerMask))
         {
             // add velocity of moveable Object
-            cc.Move(raycastHit.collider.GetComponent<MoveableScript>().movement);
+
+            cc.Move(raycastHit.collider.GetComponent<MoveableScript>().CalculatePosition());
         }
     }
 }

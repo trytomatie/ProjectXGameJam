@@ -13,13 +13,10 @@ public class MoveableScript : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    private void Update()
+    public Vector3 CalculatePosition()
     {
-        // Calculates velocity
-        if(lastPosition != transform.position)
-        {
-            movement = transform.position - lastPosition;
-            lastPosition = transform.position;
-        }
+        movement = transform.position - lastPosition;
+        lastPosition = transform.position;
+        return movement;
     }
 }
