@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -149,7 +151,7 @@ public class PlayerController : State
         // If character is landing or attacking, he cant move
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
-            movement = new Vector3(lastMovement.x * 1, 0, lastMovement.y * 1).normalized * attackCurve.Evaluate(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            movement = transform.forward * attackCurve.Evaluate(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         }
         else
         {
@@ -175,10 +177,9 @@ public class PlayerController : State
             lastMovement = cameraDependingMovement;
         }
 
-
         cc.Move(lastMovement * movementSpeed * Time.deltaTime 
             + new Vector3(0, ySpeed, 0) * Time.deltaTime
-            + slideMovement);
+            + slideMovement + anim.deltaPosition);
     }
 
     /// <summary>

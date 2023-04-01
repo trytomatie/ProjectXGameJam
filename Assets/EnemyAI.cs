@@ -46,7 +46,10 @@ public class EnemyAI : MonoBehaviour
         switch(state)
         {
             case State.Walking:
-                agent.speed = 2;
+                if(!anim.GetNextAnimatorStateInfo(0).IsName("Attacking"))
+                {
+                    agent.speed = 2;
+                }
                 anim.SetBool("attack", false);
                 break;
             case State.Attacking:

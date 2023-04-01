@@ -5,7 +5,7 @@ using UnityEngine;
 public class EventController : MonoBehaviour
 {
     private Animator anim;
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
     }
