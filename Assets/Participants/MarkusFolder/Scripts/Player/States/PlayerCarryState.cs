@@ -76,7 +76,7 @@ public class PlayerCarryState : PlayerBaseState
 
     private void CheckThrow(PlayerMainScipt player)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             carriedItem.GetComponent<Rigidbody>().isKinematic = false;
             carriedItem.GetComponent<Rigidbody>().useGravity = true;

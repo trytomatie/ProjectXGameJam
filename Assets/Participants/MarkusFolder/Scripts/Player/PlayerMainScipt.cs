@@ -17,9 +17,13 @@ public class PlayerMainScipt : MonoBehaviour
     public PlayerCarryState plCarry = new PlayerCarryState();
     [HideInInspector]
     public PlayerDraggingState plDragg = new PlayerDraggingState();
+    [HideInInspector]
+    public PlayerClimbingState plClimb = new PlayerClimbingState();
+    
     //layer
     public LayerMask groundLayer; // the layer(s) that the player can stand on
     public LayerMask plLayerMask;
+    public LayerMask targetLayer;
 
     //Public
     public PlayerBaseState currentState;
@@ -30,8 +34,6 @@ public class PlayerMainScipt : MonoBehaviour
     [HideInInspector]
     public CharacterController plCharacterController;
 
-
-
     [HideInInspector]
     public Animator plAnimator;
 
@@ -39,6 +41,7 @@ public class PlayerMainScipt : MonoBehaviour
     public Camera mainCam;
     public CinemachineFreeLook virtualCmCam;
     public GameObject playerMesh;
+    public GameObject targetObject;
 
     //Helper GameObjects
     public GameObject rightHandIK;
@@ -51,6 +54,7 @@ public class PlayerMainScipt : MonoBehaviour
     public Transform carryHelperObject;
     public GameObject dragHelper;
     public GameObject dragItem;
+    public GameObject climbWall;
     //other
     public bool weaponOut = false;
 
@@ -62,6 +66,8 @@ public class PlayerMainScipt : MonoBehaviour
     public float damage;
     public float playerHeight;
     public float throwStrength;
+    public float targetMaxDistance=10;
+
 
     //Private
     private float verticalInput;
@@ -72,6 +78,9 @@ public class PlayerMainScipt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        virtualCmCam.m_XAxis.m_InputAxisName = "Mouse X";
+        virtualCmCam.m_YAxis.m_InputAxisName = "Mouse Y";
+
         sideLightBool = false;
         sideLight.SetActive(sideLightBool);
         // Get Components
@@ -81,6 +90,8 @@ public class PlayerMainScipt : MonoBehaviour
         //Start Statemashine
         currentState = plMove;
         currentState.EnterPlayerState(this);
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

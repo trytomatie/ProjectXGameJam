@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - CarryAble
   - DraggAble
+  - ClimbAble
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - PlayerRig
   - PostProcessing
   - Not in Reflection
-  - 
-  - 
+  - TargetLayer
+  - Enemy
   - 
   - 
   - 
