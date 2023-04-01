@@ -122,7 +122,7 @@ public class PlayerController : State
     /// </summary>
     private void Rotation()
     {
-        if (cc.velocity.magnitude > 0)
+        if (cc.velocity.magnitude > 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
             float rotation = Mathf.Atan2(lastMovement.x, lastMovement.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, rotation, 0), turnspeed * Time.deltaTime);
