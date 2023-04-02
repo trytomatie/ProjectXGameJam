@@ -19,12 +19,12 @@ public class ReloadLevel : MonoBehaviour
     {
         Debug.Log("Update SpawnPoint" +
             "alslsls");
-        if (Input.GetKeyDown(KeyCode.L))
+        /*if (Input.GetKeyDown(KeyCode.L))
         {
             player.GetComponent<CharacterController>().enabled = false;
             player.transform.position = spawnPoint.position;
            player.GetComponent<CharacterController>().enabled = true;
-        }
+        }*/
     }
     
 
