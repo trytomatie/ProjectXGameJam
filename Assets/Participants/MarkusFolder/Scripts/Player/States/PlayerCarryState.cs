@@ -13,13 +13,14 @@ public class PlayerCarryState : PlayerBaseState
     float turnSmoothVelocity = 3;
     float turnSmoothTime = 0.1f;
     float gravityValue = -9.81f;
-
+    float countdown;
 
     bool groundedPlayer;
     float sprintMultiply;
 
     public override void EnterPlayerState(PlayerMainScipt player)
     {
+        countdown = 0;
         carriedItem = player.carryHelperObject.transform.GetChild(0).gameObject;
         carriedItem.transform.position = player.carryHelperObject.gameObject.transform.position;
         carriedItem.transform.rotation = player.carryHelperObject.gameObject.transform.rotation;
@@ -54,8 +55,9 @@ public class PlayerCarryState : PlayerBaseState
 
     public override void UpdatePlayerState(PlayerMainScipt player)
     {
+        countdown += 1 * Time.deltaTime;
         CheckThrow(player);
-
+        if (countdown>1) CheckRelease(player);
 
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -104,6 +106,14 @@ public class PlayerCarryState : PlayerBaseState
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         player.plCharacterController.Move(playerVelocity * Time.deltaTime);
+    }
+
+    private void CheckRelease(PlayerMainScipt player)
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            player.SwitchPlayerState(player.plMove);
+        }
     }
 
     private void CheckThrow(PlayerMainScipt player)

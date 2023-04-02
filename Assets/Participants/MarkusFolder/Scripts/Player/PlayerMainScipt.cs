@@ -114,7 +114,7 @@ public class PlayerMainScipt : MonoBehaviour
 
     private void CheckOutOfWorld()
     {
-        if (transform.position.y < -27)
+        if (transform.position.y < -200)
         {
             string sceneName = SceneManager.GetActiveScene().name;
 

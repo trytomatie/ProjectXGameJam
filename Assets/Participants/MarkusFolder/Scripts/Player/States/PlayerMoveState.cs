@@ -115,7 +115,7 @@ public class PlayerMoveState : PlayerBaseState
 
         if (Physics.Raycast(player.transform.position, player.transform.forward, out hit, 3, player.plLayerMask))
         {
-            Debug.Log(hit.collider.gameObject);
+            Debug.Log(hit.collider.gameObject+" infront");
             if (hit.collider.gameObject.CompareTag("DraggAble") && Input.GetMouseButton(1))
             {
                 Debug.Log("initialize plDragg");
