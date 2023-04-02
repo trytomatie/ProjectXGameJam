@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class PlayerCarryState : PlayerBaseState
 {
+    private Vector3 playerVelocity;
+
     GameObject carriedItem;
     private float horizontalInput;
     private float verticalInput;
     float turnSmoothVelocity = 3;
     float turnSmoothTime = 0.1f;
-    //float gravityValue = -9.81f;
+    float gravityValue = -9.81f;
+
 
     bool groundedPlayer;
     float sprintMultiply;
@@ -31,7 +34,9 @@ public class PlayerCarryState : PlayerBaseState
         {
             Debug.Log(carriedItem);
             carriedItem.GetComponent<Rigidbody>().useGravity = true;
+            carriedItem.GetComponent<Rigidbody>().isKinematic = false;
             carriedItem.transform.SetParent(null);
+            //carriedItem.GetComponent<Rigidbody>().AddForce(carriedItem.transform.up, ForceMode.Force);
         }
     }
 
@@ -72,6 +77,33 @@ public class PlayerCarryState : PlayerBaseState
         //Animation
         player.plAnimator.SetFloat("MoveHorizontal", horizontalInput * player.speed);
         player.plAnimator.SetFloat("MoveVertical", verticalInput * player.speed);
+
+        //add Gravity 
+
+        //if the player is on the ground and his downward movement is not 0 jet change it to 0
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+
+        RaycastHit hit;
+
+        // if the player presses the Jump Button and the Character is on the ground than Jump
+
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(player.jumpHeight * -3.0f * gravityValue);
+            player.plAnimator.SetTrigger("Jump");
+        }
+
+        //Check landing
+        if (Physics.Raycast(player.transform.position, Vector3.down, out hit, player.playerHeight + 0.2f, player.groundLayer) && groundedPlayer == false)
+        {
+            player.plAnimator.SetTrigger("Landing");
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        player.plCharacterController.Move(playerVelocity * Time.deltaTime);
     }
 
     private void CheckThrow(PlayerMainScipt player)

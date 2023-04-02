@@ -32,6 +32,30 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Enemy got Damage " + damage);
         }
         CheckLive();
+
+    }
+
+    public void GetDamage(float damage, bool lightDamage, GameObject target)
+    {
+        //wenn die Waffe Lichtschaden macht mach Multiplikator drauf
+        if (lightDamage)
+        {
+            health -= damage * lightDamageMultipl;
+        }
+        else
+        {
+            health -= damage;
+            Debug.Log("Enemy got Damage " + damage);
+        }
+        CheckLive();
+
+        Vector3 direction = target.transform.position - transform.position;
+
+        // Calculate the rotation to look at the target
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
+        // Apply the rotation to the object
+        transform.rotation = rotation;
     }
 
     public void CheckLive()

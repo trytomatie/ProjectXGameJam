@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMainScipt : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerMainScipt : MonoBehaviour
     [HideInInspector]
     public PlayerClimbingState plClimb = new PlayerClimbingState();
     
+    
+
     //layer
     public LayerMask groundLayer; // the layer(s) that the player can stand on
     public LayerMask plLayerMask;
@@ -29,6 +32,8 @@ public class PlayerMainScipt : MonoBehaviour
     public PlayerBaseState currentState;
 
     public Transform camer;
+
+    public int lightIndex;
 
     //Components
     [HideInInspector]
@@ -97,6 +102,7 @@ public class PlayerMainScipt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //CheckPlayerInLight();
         CheckSideLight();
         CheckAttack();
 
@@ -104,6 +110,8 @@ public class PlayerMainScipt : MonoBehaviour
         currentState.UpdatePlayerState(this);
         updateWeapon();
     }
+
+   
 
     private void updateWeapon()
     {
@@ -178,8 +186,26 @@ public class PlayerMainScipt : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyScript>().GetDamage(damage, lightDamage);
             Debug.Log("MainPlayer DealDamage Throw");
+            if (other.gameObject.GetComponent<Rigidbody>())
+            {
+                other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward*20 ,ForceMode.Force); //functioniert nicht vlt wann anders
+            }
         }
     }
+
+    public void GetDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            // Get the name of the current scene
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            // Reload the scene with the given name
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+    
 
     private void OnTriggerEnter(Collider other)
     {

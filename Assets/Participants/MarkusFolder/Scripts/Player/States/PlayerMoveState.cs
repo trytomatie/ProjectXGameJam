@@ -41,8 +41,8 @@ public class PlayerMoveState : PlayerBaseState
     {
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-        Debug.Log("Mouse X axis: " + mouseX);
-        Debug.Log("Mouse Y axis: " + mouseY);
+      //  Debug.Log("Mouse X axis: " + mouseX);
+       // Debug.Log("Mouse Y axis: " + mouseY);
         
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
