@@ -109,9 +109,19 @@ public class PlayerMainScipt : MonoBehaviour
         //Update current state //Movement State // Target State // climbing state // interacting state // Carrying // Dragging
         currentState.UpdatePlayerState(this);
         updateWeapon();
+        CheckOutOfWorld();
     }
 
-   
+    private void CheckOutOfWorld()
+    {
+        if (transform.position.y < -27)
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            // Reload the scene with the given name
+            SceneManager.LoadScene(sceneName);
+        }
+    }
 
     private void updateWeapon()
     {

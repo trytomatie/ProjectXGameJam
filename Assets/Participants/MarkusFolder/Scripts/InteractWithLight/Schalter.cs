@@ -37,11 +37,14 @@ public class Schalter : InteractWithLight
 
     private void CheckStandOn()
     {
-
-        if (Physics.BoxCast(transform.position, Vector3.one, transform.up, out RaycastHit hitInfo, Quaternion.identity, 
-            2, layer))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.up, out hit, 1, layer))
         {
             door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y + 20, door.transform.position.z);
+        }
+        else
+        {
+            door.transform.position = doorStart;
         }
     }
 
@@ -59,5 +62,6 @@ public class Schalter : InteractWithLight
         objectCollider.isTrigger = true;
         objectRenderer.material = inActiveMat;
         active = false;
+
     }
 }

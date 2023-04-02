@@ -63,6 +63,7 @@ public class EnemySmScript1 : MonoBehaviour
                     }
 
                 }
+                //if (player.GetComponent<PlayerMainScipt>().lightIndex > 0)
             }
             if (colliders[i].gameObject.CompareTag("LightSource"))
             {
